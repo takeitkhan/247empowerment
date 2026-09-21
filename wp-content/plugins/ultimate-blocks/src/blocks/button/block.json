@@ -1,0 +1,161 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ub/button",
+	"title": "Buttons (UB)",
+	"category": "ultimateblocks",
+	"description": "An improved Button block with icons, hover color, styles, and more customizations & controls.",
+	"keywords": [
+		"Button",
+		"Buttons",
+		"Ultimate Blocks"
+	],
+	"attributes": {
+		"blockID": {
+			"type": "string",
+			"default": ""
+		},
+		"activeButtonIndex": {
+			"type": "number",
+			"default": 0
+		},
+		"placeholder": {
+			"type": "string",
+			"default": ""
+		},
+		"buttonText": {
+			"type": "string",
+			"default": "Button Text"
+		},
+		"orientation": {
+			"type": "string",
+			"default": "row"
+		},
+		"align": {
+			"type": "string",
+			"default": "center"
+		},
+		"url": {
+			"type": "string",
+			"default": ""
+		},
+		"size": {
+			"type": "string",
+			"default": "medium"
+		},
+		"buttonColor": {
+			"type": "string",
+			"default": "#313131"
+		},
+		"buttonHoverColor": {
+			"type": "string",
+			"default": "#313131"
+		},
+		"buttonTextColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"buttonTextHoverColor": {
+			"type": "string",
+			"default": "#ffffff"
+		},
+		"isFlexWrap": {
+			"type": "boolean",
+			"default": true
+		},
+		"buttonRounded": {
+			"type": "boolean",
+			"default": true
+		},
+		"chosenIcon": {
+			"type": "string",
+			"default": ""
+		},
+		"iconPosition": {
+			"type": "string",
+			"default": "left"
+		},
+		"buttonIsTransparent": {
+			"type": "boolean",
+			"default": false
+		},
+		"addNofollow": {
+			"type": "boolean",
+			"default": false
+		},
+		"openInNewTab": {
+			"type": "boolean",
+			"default": true
+		},
+		"buttonWidth": {
+			"type": "string",
+			"default": "flex"
+		},
+		"buttons": {
+			"type": "array",
+			"default": []
+		},
+		"padding": {
+			"type": "object",
+			"default": {}
+		},
+		"margin": {
+			"type": "object",
+			"default": {}
+		},
+		"blockSpacing": {
+			"type": "object",
+			"default": {}
+		},
+		"isBorderComponentChanged": {
+			"type": "boolean",
+			"default": false
+		},
+		"fontFamily": {
+			"type": "string",
+			"default": ""
+		},
+		"fontSize": {
+			"type": "string",
+			"default": ""
+		},
+		"fontStyle": {
+			"type": "string",
+			"default": ""
+		},
+		"fontWeight": {
+			"type": "string",
+			"default": ""
+		},
+		"letterSpacing": {
+			"type": "string",
+			"default": ""
+		},
+		"lineHeight": {
+			"type": "string",
+			"default": ""
+		},
+		"textTransform": {
+			"type": "string",
+			"default": ""
+		},
+		"textDecoration": {
+			"type": "string",
+			"default": ""
+		},
+		"width": {
+			"type": "object",
+			"default": {
+				"all": ""
+			}
+		},
+		"isOldSizeRemoved": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"supports": {},
+	"editorStyle": "ultimate_blocks-cgb-block-editor-css",
+	"editorScript": "ultimate_blocks-cgb-block-js",
+	"style": "ultimate_blocks-cgb-style-css"
+}

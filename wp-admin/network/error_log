@@ -1,0 +1,852 @@
+[24-Jul-2026 23:49:52 UTC] objectcache.critical: Failed to locate and load Object Cache Pro plugin
+[24-Jul-2026 23:49:52 UTC] WordPress database error Duplicate key name 'paypal_subscription_id' for query CREATE TABLE IF NOT EXISTS wp_bc82891ba1_course_subscriptions (
+        id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        user_id BIGINT(20) UNSIGNED NOT NULL,
+        course_id BIGINT(20) UNSIGNED NOT NULL,
+        variation_index INT DEFAULT -1,
+        variation_label VARCHAR(255),
+        paypal_subscription_id VARCHAR(50) NOT NULL UNIQUE,
+        paypal_plan_id VARCHAR(50),
+        billing_type ENUM('onetime', 'weekly', 'monthly', 'yearly') DEFAULT 'onetime',
+        price DECIMAL(10, 2),
+        status ENUM('ACTIVE', 'SUSPENDED', 'CANCELLED', 'EXPIRED') DEFAULT 'ACTIVE',
+        started_at DATETIME,
+        updated_at DATETIME ON UPDATE CURRENT_TIMESTAMP,
+        cancelled_at DATETIME,
+        cancellation_reason VARCHAR(500),
+        paypal_payer_id VARCHAR(50),
+        paypal_payer_email VARCHAR(255),
+        next_billing_date DATE,
+        failed_attempts INT DEFAULT 0,
+        last_payment_date DATETIME,
+        last_payment_amount DECIMAL(10, 2),
+        
+        KEY user_id (user_id),
+        KEY course_id (course_id),
+        KEY paypal_subscription_id (paypal_subscription_id),
+        KEY status (status),
+        KEY started_at (started_at),
+        KEY user_course (user_id, course_id)
+    ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci made by require_once('wp-admin/network/admin.php'), require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('after_setup_theme'), WP_Hook->do_action, WP_Hook->apply_filters, {closure}, dbDelta
+[24-Jul-2026 23:49:52 UTC] === PayoutSystem::activate() called ===
+[24-Jul-2026 23:49:52 UTC] Table name: wp_bc82891ba1_withdrawal_requests
+[24-Jul-2026 23:49:52 UTC] Charset collate: DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci
+[24-Jul-2026 23:49:52 UTC] SQL: CREATE TABLE IF NOT EXISTS wp_bc82891ba1_withdrawal_requests (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            user_id BIGINT(20) UNSIGNED NOT NULL,
+            amount DECIMAL(10, 2) NOT NULL,
+            paypal_email VARCHAR(255) NOT NULL,
+            status ENUM('pending', 'approved', 'processing', 'paid', 'rejected', 'failed') DEFAULT 'pending',
+            transaction_id VARCHAR(255) DEFAULT NULL,
+            admin_notes LONGTEXT DEFAULT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            KEY user_id (user_id),
+            KEY status (status),
+            KEY created_at (created_at)
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+[24-Jul-2026 23:49:52 UTC] dbDelta result: Array
+(
+    [IF] => Created table IF
+)
+
+[24-Jul-2026 23:49:52 UTC] Audit SQL: CREATE TABLE IF NOT EXISTS wp_bc82891ba1_payout_audit_log (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            withdrawal_id BIGINT(20) UNSIGNED NOT NULL,
+            admin_id BIGINT(20) UNSIGNED,
+            action VARCHAR(50) NOT NULL,
+            notes LONGTEXT DEFAULT NULL,
+            response_data LONGTEXT DEFAULT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            KEY withdrawal_id (withdrawal_id),
+            KEY admin_id (admin_id),
+            FOREIGN KEY (withdrawal_id) REFERENCES wp_bc82891ba1_withdrawal_requests(id) ON DELETE CASCADE
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+[24-Jul-2026 23:49:52 UTC] dbDelta audit result: Array
+(
+    [IF] => Created table IF
+)
+
+[24-Jul-2026 23:49:52 UTC] === PayoutSystem::activate() completed ===
+[24-Jul-2026 23:49:52 UTC] DEBUG init: Rewrite rule registered for ^u/([^/]+)/?$
+[24-Jul-2026 23:49:55 UTC] objectcache.critical: Failed to locate and load Object Cache Pro plugin
+[24-Jul-2026 23:49:55 UTC] WordPress database error Duplicate key name 'paypal_subscription_id' for query CREATE TABLE IF NOT EXISTS wp_bc82891ba1_course_subscriptions (
+        id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        user_id BIGINT(20) UNSIGNED NOT NULL,
+        course_id BIGINT(20) UNSIGNED NOT NULL,
+        variation_index INT DEFAULT -1,
+        variation_label VARCHAR(255),
+        paypal_subscription_id VARCHAR(50) NOT NULL UNIQUE,
+        paypal_plan_id VARCHAR(50),
+        billing_type ENUM('onetime', 'weekly', 'monthly', 'yearly') DEFAULT 'onetime',
+        price DECIMAL(10, 2),
+        status ENUM('ACTIVE', 'SUSPENDED', 'CANCELLED', 'EXPIRED') DEFAULT 'ACTIVE',
+        started_at DATETIME,
+        updated_at DATETIME ON UPDATE CURRENT_TIMESTAMP,
+        cancelled_at DATETIME,
+        cancellation_reason VARCHAR(500),
+        paypal_payer_id VARCHAR(50),
+        paypal_payer_email VARCHAR(255),
+        next_billing_date DATE,
+        failed_attempts INT DEFAULT 0,
+        last_payment_date DATETIME,
+        last_payment_amount DECIMAL(10, 2),
+        
+        KEY user_id (user_id),
+        KEY course_id (course_id),
+        KEY paypal_subscription_id (paypal_subscription_id),
+        KEY status (status),
+        KEY started_at (started_at),
+        KEY user_course (user_id, course_id)
+    ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci made by require_once('wp-admin/network/admin.php'), require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('after_setup_theme'), WP_Hook->do_action, WP_Hook->apply_filters, {closure}, dbDelta
+[24-Jul-2026 23:49:55 UTC] === PayoutSystem::activate() called ===
+[24-Jul-2026 23:49:55 UTC] Table name: wp_bc82891ba1_withdrawal_requests
+[24-Jul-2026 23:49:55 UTC] Charset collate: DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci
+[24-Jul-2026 23:49:55 UTC] SQL: CREATE TABLE IF NOT EXISTS wp_bc82891ba1_withdrawal_requests (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            user_id BIGINT(20) UNSIGNED NOT NULL,
+            amount DECIMAL(10, 2) NOT NULL,
+            paypal_email VARCHAR(255) NOT NULL,
+            status ENUM('pending', 'approved', 'processing', 'paid', 'rejected', 'failed') DEFAULT 'pending',
+            transaction_id VARCHAR(255) DEFAULT NULL,
+            admin_notes LONGTEXT DEFAULT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            KEY user_id (user_id),
+            KEY status (status),
+            KEY created_at (created_at)
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+[24-Jul-2026 23:49:55 UTC] dbDelta result: Array
+(
+    [IF] => Created table IF
+)
+
+[24-Jul-2026 23:49:55 UTC] Audit SQL: CREATE TABLE IF NOT EXISTS wp_bc82891ba1_payout_audit_log (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            withdrawal_id BIGINT(20) UNSIGNED NOT NULL,
+            admin_id BIGINT(20) UNSIGNED,
+            action VARCHAR(50) NOT NULL,
+            notes LONGTEXT DEFAULT NULL,
+            response_data LONGTEXT DEFAULT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            KEY withdrawal_id (withdrawal_id),
+            KEY admin_id (admin_id),
+            FOREIGN KEY (withdrawal_id) REFERENCES wp_bc82891ba1_withdrawal_requests(id) ON DELETE CASCADE
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+[24-Jul-2026 23:49:55 UTC] dbDelta audit result: Array
+(
+    [IF] => Created table IF
+)
+
+[24-Jul-2026 23:49:55 UTC] === PayoutSystem::activate() completed ===
+[24-Jul-2026 23:49:55 UTC] DEBUG init: Rewrite rule registered for ^u/([^/]+)/?$
+[25-Jul-2026 08:11:09 UTC] objectcache.critical: Failed to locate and load Object Cache Pro plugin
+[25-Jul-2026 08:11:10 UTC] WordPress database error Duplicate key name 'paypal_subscription_id' for query CREATE TABLE IF NOT EXISTS wp_bc82891ba1_course_subscriptions (
+        id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        user_id BIGINT(20) UNSIGNED NOT NULL,
+        course_id BIGINT(20) UNSIGNED NOT NULL,
+        variation_index INT DEFAULT -1,
+        variation_label VARCHAR(255),
+        paypal_subscription_id VARCHAR(50) NOT NULL UNIQUE,
+        paypal_plan_id VARCHAR(50),
+        billing_type ENUM('onetime', 'weekly', 'monthly', 'yearly') DEFAULT 'onetime',
+        price DECIMAL(10, 2),
+        status ENUM('ACTIVE', 'SUSPENDED', 'CANCELLED', 'EXPIRED') DEFAULT 'ACTIVE',
+        started_at DATETIME,
+        updated_at DATETIME ON UPDATE CURRENT_TIMESTAMP,
+        cancelled_at DATETIME,
+        cancellation_reason VARCHAR(500),
+        paypal_payer_id VARCHAR(50),
+        paypal_payer_email VARCHAR(255),
+        next_billing_date DATE,
+        failed_attempts INT DEFAULT 0,
+        last_payment_date DATETIME,
+        last_payment_amount DECIMAL(10, 2),
+        
+        KEY user_id (user_id),
+        KEY course_id (course_id),
+        KEY paypal_subscription_id (paypal_subscription_id),
+        KEY status (status),
+        KEY started_at (started_at),
+        KEY user_course (user_id, course_id)
+    ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci made by require_once('wp-admin/network/admin.php'), require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('after_setup_theme'), WP_Hook->do_action, WP_Hook->apply_filters, {closure}, dbDelta
+[25-Jul-2026 08:11:10 UTC] === PayoutSystem::activate() called ===
+[25-Jul-2026 08:11:10 UTC] Table name: wp_bc82891ba1_withdrawal_requests
+[25-Jul-2026 08:11:10 UTC] Charset collate: DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci
+[25-Jul-2026 08:11:10 UTC] SQL: CREATE TABLE IF NOT EXISTS wp_bc82891ba1_withdrawal_requests (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            user_id BIGINT(20) UNSIGNED NOT NULL,
+            amount DECIMAL(10, 2) NOT NULL,
+            paypal_email VARCHAR(255) NOT NULL,
+            status ENUM('pending', 'approved', 'processing', 'paid', 'rejected', 'failed') DEFAULT 'pending',
+            transaction_id VARCHAR(255) DEFAULT NULL,
+            admin_notes LONGTEXT DEFAULT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            KEY user_id (user_id),
+            KEY status (status),
+            KEY created_at (created_at)
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+[25-Jul-2026 08:11:10 UTC] dbDelta result: Array
+(
+    [IF] => Created table IF
+)
+
+[25-Jul-2026 08:11:10 UTC] Audit SQL: CREATE TABLE IF NOT EXISTS wp_bc82891ba1_payout_audit_log (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            withdrawal_id BIGINT(20) UNSIGNED NOT NULL,
+            admin_id BIGINT(20) UNSIGNED,
+            action VARCHAR(50) NOT NULL,
+            notes LONGTEXT DEFAULT NULL,
+            response_data LONGTEXT DEFAULT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            KEY withdrawal_id (withdrawal_id),
+            KEY admin_id (admin_id),
+            FOREIGN KEY (withdrawal_id) REFERENCES wp_bc82891ba1_withdrawal_requests(id) ON DELETE CASCADE
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+[25-Jul-2026 08:11:10 UTC] dbDelta audit result: Array
+(
+    [IF] => Created table IF
+)
+
+[25-Jul-2026 08:11:10 UTC] === PayoutSystem::activate() completed ===
+[25-Jul-2026 08:11:10 UTC] DEBUG init: Rewrite rule registered for ^u/([^/]+)/?$
+[25-Jul-2026 13:24:55 UTC] objectcache.critical: Failed to locate and load Object Cache Pro plugin
+[25-Jul-2026 13:24:55 UTC] WordPress database error Duplicate key name 'paypal_subscription_id' for query CREATE TABLE IF NOT EXISTS wp_bc82891ba1_course_subscriptions (
+        id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        user_id BIGINT(20) UNSIGNED NOT NULL,
+        course_id BIGINT(20) UNSIGNED NOT NULL,
+        variation_index INT DEFAULT -1,
+        variation_label VARCHAR(255),
+        paypal_subscription_id VARCHAR(50) NOT NULL UNIQUE,
+        paypal_plan_id VARCHAR(50),
+        billing_type ENUM('onetime', 'weekly', 'monthly', 'yearly') DEFAULT 'onetime',
+        price DECIMAL(10, 2),
+        status ENUM('ACTIVE', 'SUSPENDED', 'CANCELLED', 'EXPIRED') DEFAULT 'ACTIVE',
+        started_at DATETIME,
+        updated_at DATETIME ON UPDATE CURRENT_TIMESTAMP,
+        cancelled_at DATETIME,
+        cancellation_reason VARCHAR(500),
+        paypal_payer_id VARCHAR(50),
+        paypal_payer_email VARCHAR(255),
+        next_billing_date DATE,
+        failed_attempts INT DEFAULT 0,
+        last_payment_date DATETIME,
+        last_payment_amount DECIMAL(10, 2),
+        
+        KEY user_id (user_id),
+        KEY course_id (course_id),
+        KEY paypal_subscription_id (paypal_subscription_id),
+        KEY status (status),
+        KEY started_at (started_at),
+        KEY user_course (user_id, course_id)
+    ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci made by require_once('wp-admin/network/admin.php'), require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('after_setup_theme'), WP_Hook->do_action, WP_Hook->apply_filters, {closure}, dbDelta
+[25-Jul-2026 13:24:55 UTC] === PayoutSystem::activate() called ===
+[25-Jul-2026 13:24:55 UTC] Table name: wp_bc82891ba1_withdrawal_requests
+[25-Jul-2026 13:24:55 UTC] Charset collate: DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci
+[25-Jul-2026 13:24:55 UTC] SQL: CREATE TABLE IF NOT EXISTS wp_bc82891ba1_withdrawal_requests (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            user_id BIGINT(20) UNSIGNED NOT NULL,
+            amount DECIMAL(10, 2) NOT NULL,
+            paypal_email VARCHAR(255) NOT NULL,
+            status ENUM('pending', 'approved', 'processing', 'paid', 'rejected', 'failed') DEFAULT 'pending',
+            transaction_id VARCHAR(255) DEFAULT NULL,
+            admin_notes LONGTEXT DEFAULT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            KEY user_id (user_id),
+            KEY status (status),
+            KEY created_at (created_at)
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+[25-Jul-2026 13:24:55 UTC] dbDelta result: Array
+(
+    [IF] => Created table IF
+)
+
+[25-Jul-2026 13:24:55 UTC] Audit SQL: CREATE TABLE IF NOT EXISTS wp_bc82891ba1_payout_audit_log (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            withdrawal_id BIGINT(20) UNSIGNED NOT NULL,
+            admin_id BIGINT(20) UNSIGNED,
+            action VARCHAR(50) NOT NULL,
+            notes LONGTEXT DEFAULT NULL,
+            response_data LONGTEXT DEFAULT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            KEY withdrawal_id (withdrawal_id),
+            KEY admin_id (admin_id),
+            FOREIGN KEY (withdrawal_id) REFERENCES wp_bc82891ba1_withdrawal_requests(id) ON DELETE CASCADE
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+[25-Jul-2026 13:24:55 UTC] dbDelta audit result: Array
+(
+    [IF] => Created table IF
+)
+
+[25-Jul-2026 13:24:55 UTC] === PayoutSystem::activate() completed ===
+[25-Jul-2026 13:24:55 UTC] DEBUG init: Rewrite rule registered for ^u/([^/]+)/?$
+[25-Jul-2026 13:24:57 UTC] objectcache.critical: Failed to locate and load Object Cache Pro plugin
+[25-Jul-2026 13:24:57 UTC] WordPress database error Duplicate key name 'paypal_subscription_id' for query CREATE TABLE IF NOT EXISTS wp_bc82891ba1_course_subscriptions (
+        id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        user_id BIGINT(20) UNSIGNED NOT NULL,
+        course_id BIGINT(20) UNSIGNED NOT NULL,
+        variation_index INT DEFAULT -1,
+        variation_label VARCHAR(255),
+        paypal_subscription_id VARCHAR(50) NOT NULL UNIQUE,
+        paypal_plan_id VARCHAR(50),
+        billing_type ENUM('onetime', 'weekly', 'monthly', 'yearly') DEFAULT 'onetime',
+        price DECIMAL(10, 2),
+        status ENUM('ACTIVE', 'SUSPENDED', 'CANCELLED', 'EXPIRED') DEFAULT 'ACTIVE',
+        started_at DATETIME,
+        updated_at DATETIME ON UPDATE CURRENT_TIMESTAMP,
+        cancelled_at DATETIME,
+        cancellation_reason VARCHAR(500),
+        paypal_payer_id VARCHAR(50),
+        paypal_payer_email VARCHAR(255),
+        next_billing_date DATE,
+        failed_attempts INT DEFAULT 0,
+        last_payment_date DATETIME,
+        last_payment_amount DECIMAL(10, 2),
+        
+        KEY user_id (user_id),
+        KEY course_id (course_id),
+        KEY paypal_subscription_id (paypal_subscription_id),
+        KEY status (status),
+        KEY started_at (started_at),
+        KEY user_course (user_id, course_id)
+    ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci made by require_once('wp-admin/network/admin.php'), require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('after_setup_theme'), WP_Hook->do_action, WP_Hook->apply_filters, {closure}, dbDelta
+[25-Jul-2026 13:24:57 UTC] === PayoutSystem::activate() called ===
+[25-Jul-2026 13:24:57 UTC] Table name: wp_bc82891ba1_withdrawal_requests
+[25-Jul-2026 13:24:57 UTC] Charset collate: DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci
+[25-Jul-2026 13:24:57 UTC] SQL: CREATE TABLE IF NOT EXISTS wp_bc82891ba1_withdrawal_requests (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            user_id BIGINT(20) UNSIGNED NOT NULL,
+            amount DECIMAL(10, 2) NOT NULL,
+            paypal_email VARCHAR(255) NOT NULL,
+            status ENUM('pending', 'approved', 'processing', 'paid', 'rejected', 'failed') DEFAULT 'pending',
+            transaction_id VARCHAR(255) DEFAULT NULL,
+            admin_notes LONGTEXT DEFAULT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            KEY user_id (user_id),
+            KEY status (status),
+            KEY created_at (created_at)
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+[25-Jul-2026 13:24:57 UTC] dbDelta result: Array
+(
+    [IF] => Created table IF
+)
+
+[25-Jul-2026 13:24:57 UTC] Audit SQL: CREATE TABLE IF NOT EXISTS wp_bc82891ba1_payout_audit_log (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            withdrawal_id BIGINT(20) UNSIGNED NOT NULL,
+            admin_id BIGINT(20) UNSIGNED,
+            action VARCHAR(50) NOT NULL,
+            notes LONGTEXT DEFAULT NULL,
+            response_data LONGTEXT DEFAULT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            KEY withdrawal_id (withdrawal_id),
+            KEY admin_id (admin_id),
+            FOREIGN KEY (withdrawal_id) REFERENCES wp_bc82891ba1_withdrawal_requests(id) ON DELETE CASCADE
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+[25-Jul-2026 13:24:57 UTC] dbDelta audit result: Array
+(
+    [IF] => Created table IF
+)
+
+[25-Jul-2026 13:24:57 UTC] === PayoutSystem::activate() completed ===
+[25-Jul-2026 13:24:58 UTC] DEBUG init: Rewrite rule registered for ^u/([^/]+)/?$
+[25-Jul-2026 15:25:25 UTC] objectcache.critical: Failed to locate and load Object Cache Pro plugin
+[25-Jul-2026 15:25:25 UTC] WordPress database error Duplicate key name 'paypal_subscription_id' for query CREATE TABLE IF NOT EXISTS wp_bc82891ba1_course_subscriptions (
+        id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        user_id BIGINT(20) UNSIGNED NOT NULL,
+        course_id BIGINT(20) UNSIGNED NOT NULL,
+        variation_index INT DEFAULT -1,
+        variation_label VARCHAR(255),
+        paypal_subscription_id VARCHAR(50) NOT NULL UNIQUE,
+        paypal_plan_id VARCHAR(50),
+        billing_type ENUM('onetime', 'weekly', 'monthly', 'yearly') DEFAULT 'onetime',
+        price DECIMAL(10, 2),
+        status ENUM('ACTIVE', 'SUSPENDED', 'CANCELLED', 'EXPIRED') DEFAULT 'ACTIVE',
+        started_at DATETIME,
+        updated_at DATETIME ON UPDATE CURRENT_TIMESTAMP,
+        cancelled_at DATETIME,
+        cancellation_reason VARCHAR(500),
+        paypal_payer_id VARCHAR(50),
+        paypal_payer_email VARCHAR(255),
+        next_billing_date DATE,
+        failed_attempts INT DEFAULT 0,
+        last_payment_date DATETIME,
+        last_payment_amount DECIMAL(10, 2),
+        
+        KEY user_id (user_id),
+        KEY course_id (course_id),
+        KEY paypal_subscription_id (paypal_subscription_id),
+        KEY status (status),
+        KEY started_at (started_at),
+        KEY user_course (user_id, course_id)
+    ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci made by require_once('wp-admin/network/admin.php'), require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('after_setup_theme'), WP_Hook->do_action, WP_Hook->apply_filters, {closure}, dbDelta
+[25-Jul-2026 15:25:26 UTC] === PayoutSystem::activate() called ===
+[25-Jul-2026 15:25:26 UTC] Table name: wp_bc82891ba1_withdrawal_requests
+[25-Jul-2026 15:25:26 UTC] Charset collate: DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci
+[25-Jul-2026 15:25:26 UTC] SQL: CREATE TABLE IF NOT EXISTS wp_bc82891ba1_withdrawal_requests (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            user_id BIGINT(20) UNSIGNED NOT NULL,
+            amount DECIMAL(10, 2) NOT NULL,
+            paypal_email VARCHAR(255) NOT NULL,
+            status ENUM('pending', 'approved', 'processing', 'paid', 'rejected', 'failed') DEFAULT 'pending',
+            transaction_id VARCHAR(255) DEFAULT NULL,
+            admin_notes LONGTEXT DEFAULT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            KEY user_id (user_id),
+            KEY status (status),
+            KEY created_at (created_at)
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+[25-Jul-2026 15:25:26 UTC] dbDelta result: Array
+(
+    [IF] => Created table IF
+)
+
+[25-Jul-2026 15:25:26 UTC] Audit SQL: CREATE TABLE IF NOT EXISTS wp_bc82891ba1_payout_audit_log (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            withdrawal_id BIGINT(20) UNSIGNED NOT NULL,
+            admin_id BIGINT(20) UNSIGNED,
+            action VARCHAR(50) NOT NULL,
+            notes LONGTEXT DEFAULT NULL,
+            response_data LONGTEXT DEFAULT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            KEY withdrawal_id (withdrawal_id),
+            KEY admin_id (admin_id),
+            FOREIGN KEY (withdrawal_id) REFERENCES wp_bc82891ba1_withdrawal_requests(id) ON DELETE CASCADE
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+[25-Jul-2026 15:25:26 UTC] dbDelta audit result: Array
+(
+    [IF] => Created table IF
+)
+
+[25-Jul-2026 15:25:26 UTC] === PayoutSystem::activate() completed ===
+[25-Jul-2026 15:25:26 UTC] DEBUG init: Rewrite rule registered for ^u/([^/]+)/?$
+[25-Jul-2026 15:25:28 UTC] objectcache.critical: Failed to locate and load Object Cache Pro plugin
+[25-Jul-2026 15:25:28 UTC] WordPress database error Duplicate key name 'paypal_subscription_id' for query CREATE TABLE IF NOT EXISTS wp_bc82891ba1_course_subscriptions (
+        id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        user_id BIGINT(20) UNSIGNED NOT NULL,
+        course_id BIGINT(20) UNSIGNED NOT NULL,
+        variation_index INT DEFAULT -1,
+        variation_label VARCHAR(255),
+        paypal_subscription_id VARCHAR(50) NOT NULL UNIQUE,
+        paypal_plan_id VARCHAR(50),
+        billing_type ENUM('onetime', 'weekly', 'monthly', 'yearly') DEFAULT 'onetime',
+        price DECIMAL(10, 2),
+        status ENUM('ACTIVE', 'SUSPENDED', 'CANCELLED', 'EXPIRED') DEFAULT 'ACTIVE',
+        started_at DATETIME,
+        updated_at DATETIME ON UPDATE CURRENT_TIMESTAMP,
+        cancelled_at DATETIME,
+        cancellation_reason VARCHAR(500),
+        paypal_payer_id VARCHAR(50),
+        paypal_payer_email VARCHAR(255),
+        next_billing_date DATE,
+        failed_attempts INT DEFAULT 0,
+        last_payment_date DATETIME,
+        last_payment_amount DECIMAL(10, 2),
+        
+        KEY user_id (user_id),
+        KEY course_id (course_id),
+        KEY paypal_subscription_id (paypal_subscription_id),
+        KEY status (status),
+        KEY started_at (started_at),
+        KEY user_course (user_id, course_id)
+    ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci made by require_once('wp-admin/network/admin.php'), require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('after_setup_theme'), WP_Hook->do_action, WP_Hook->apply_filters, {closure}, dbDelta
+[25-Jul-2026 15:25:28 UTC] === PayoutSystem::activate() called ===
+[25-Jul-2026 15:25:28 UTC] Table name: wp_bc82891ba1_withdrawal_requests
+[25-Jul-2026 15:25:28 UTC] Charset collate: DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci
+[25-Jul-2026 15:25:28 UTC] SQL: CREATE TABLE IF NOT EXISTS wp_bc82891ba1_withdrawal_requests (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            user_id BIGINT(20) UNSIGNED NOT NULL,
+            amount DECIMAL(10, 2) NOT NULL,
+            paypal_email VARCHAR(255) NOT NULL,
+            status ENUM('pending', 'approved', 'processing', 'paid', 'rejected', 'failed') DEFAULT 'pending',
+            transaction_id VARCHAR(255) DEFAULT NULL,
+            admin_notes LONGTEXT DEFAULT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            KEY user_id (user_id),
+            KEY status (status),
+            KEY created_at (created_at)
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+[25-Jul-2026 15:25:28 UTC] dbDelta result: Array
+(
+    [IF] => Created table IF
+)
+
+[25-Jul-2026 15:25:28 UTC] Audit SQL: CREATE TABLE IF NOT EXISTS wp_bc82891ba1_payout_audit_log (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            withdrawal_id BIGINT(20) UNSIGNED NOT NULL,
+            admin_id BIGINT(20) UNSIGNED,
+            action VARCHAR(50) NOT NULL,
+            notes LONGTEXT DEFAULT NULL,
+            response_data LONGTEXT DEFAULT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            KEY withdrawal_id (withdrawal_id),
+            KEY admin_id (admin_id),
+            FOREIGN KEY (withdrawal_id) REFERENCES wp_bc82891ba1_withdrawal_requests(id) ON DELETE CASCADE
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+[25-Jul-2026 15:25:28 UTC] dbDelta audit result: Array
+(
+    [IF] => Created table IF
+)
+
+[25-Jul-2026 15:25:28 UTC] === PayoutSystem::activate() completed ===
+[25-Jul-2026 15:25:28 UTC] DEBUG init: Rewrite rule registered for ^u/([^/]+)/?$
+[01-Aug-2026 20:14:56 UTC] objectcache.critical: Failed to locate and load Object Cache Pro plugin
+[01-Aug-2026 20:14:57 UTC] WordPress database error Duplicate key name 'paypal_subscription_id' for query CREATE TABLE IF NOT EXISTS wp_bc82891ba1_course_subscriptions (
+        id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        user_id BIGINT(20) UNSIGNED NOT NULL,
+        course_id BIGINT(20) UNSIGNED NOT NULL,
+        variation_index INT DEFAULT -1,
+        variation_label VARCHAR(255),
+        paypal_subscription_id VARCHAR(50) NOT NULL UNIQUE,
+        paypal_plan_id VARCHAR(50),
+        billing_type ENUM('onetime', 'weekly', 'monthly', 'yearly') DEFAULT 'onetime',
+        price DECIMAL(10, 2),
+        status ENUM('ACTIVE', 'SUSPENDED', 'CANCELLED', 'EXPIRED') DEFAULT 'ACTIVE',
+        started_at DATETIME,
+        updated_at DATETIME ON UPDATE CURRENT_TIMESTAMP,
+        cancelled_at DATETIME,
+        cancellation_reason VARCHAR(500),
+        paypal_payer_id VARCHAR(50),
+        paypal_payer_email VARCHAR(255),
+        next_billing_date DATE,
+        failed_attempts INT DEFAULT 0,
+        last_payment_date DATETIME,
+        last_payment_amount DECIMAL(10, 2),
+        
+        KEY user_id (user_id),
+        KEY course_id (course_id),
+        KEY paypal_subscription_id (paypal_subscription_id),
+        KEY status (status),
+        KEY started_at (started_at),
+        KEY user_course (user_id, course_id)
+    ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci made by require_once('wp-admin/network/admin.php'), require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('after_setup_theme'), WP_Hook->do_action, WP_Hook->apply_filters, {closure}, dbDelta
+[01-Aug-2026 20:14:57 UTC] === PayoutSystem::activate() called ===
+[01-Aug-2026 20:14:57 UTC] Table name: wp_bc82891ba1_withdrawal_requests
+[01-Aug-2026 20:14:57 UTC] Charset collate: DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci
+[01-Aug-2026 20:14:57 UTC] SQL: CREATE TABLE IF NOT EXISTS wp_bc82891ba1_withdrawal_requests (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            user_id BIGINT(20) UNSIGNED NOT NULL,
+            amount DECIMAL(10, 2) NOT NULL,
+            paypal_email VARCHAR(255) NOT NULL,
+            status ENUM('pending', 'approved', 'processing', 'paid', 'rejected', 'failed') DEFAULT 'pending',
+            transaction_id VARCHAR(255) DEFAULT NULL,
+            admin_notes LONGTEXT DEFAULT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            KEY user_id (user_id),
+            KEY status (status),
+            KEY created_at (created_at)
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+[01-Aug-2026 20:14:57 UTC] dbDelta result: Array
+(
+    [IF] => Created table IF
+)
+
+[01-Aug-2026 20:14:57 UTC] Audit SQL: CREATE TABLE IF NOT EXISTS wp_bc82891ba1_payout_audit_log (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            withdrawal_id BIGINT(20) UNSIGNED NOT NULL,
+            admin_id BIGINT(20) UNSIGNED,
+            action VARCHAR(50) NOT NULL,
+            notes LONGTEXT DEFAULT NULL,
+            response_data LONGTEXT DEFAULT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            KEY withdrawal_id (withdrawal_id),
+            KEY admin_id (admin_id),
+            FOREIGN KEY (withdrawal_id) REFERENCES wp_bc82891ba1_withdrawal_requests(id) ON DELETE CASCADE
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+[01-Aug-2026 20:14:57 UTC] dbDelta audit result: Array
+(
+    [IF] => Created table IF
+)
+
+[01-Aug-2026 20:14:57 UTC] === PayoutSystem::activate() completed ===
+[01-Aug-2026 20:14:57 UTC] DEBUG init: Rewrite rule registered for ^u/([^/]+)/?$
+[01-Aug-2026 20:14:59 UTC] objectcache.critical: Failed to locate and load Object Cache Pro plugin
+[01-Aug-2026 20:14:59 UTC] WordPress database error Duplicate key name 'paypal_subscription_id' for query CREATE TABLE IF NOT EXISTS wp_bc82891ba1_course_subscriptions (
+        id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        user_id BIGINT(20) UNSIGNED NOT NULL,
+        course_id BIGINT(20) UNSIGNED NOT NULL,
+        variation_index INT DEFAULT -1,
+        variation_label VARCHAR(255),
+        paypal_subscription_id VARCHAR(50) NOT NULL UNIQUE,
+        paypal_plan_id VARCHAR(50),
+        billing_type ENUM('onetime', 'weekly', 'monthly', 'yearly') DEFAULT 'onetime',
+        price DECIMAL(10, 2),
+        status ENUM('ACTIVE', 'SUSPENDED', 'CANCELLED', 'EXPIRED') DEFAULT 'ACTIVE',
+        started_at DATETIME,
+        updated_at DATETIME ON UPDATE CURRENT_TIMESTAMP,
+        cancelled_at DATETIME,
+        cancellation_reason VARCHAR(500),
+        paypal_payer_id VARCHAR(50),
+        paypal_payer_email VARCHAR(255),
+        next_billing_date DATE,
+        failed_attempts INT DEFAULT 0,
+        last_payment_date DATETIME,
+        last_payment_amount DECIMAL(10, 2),
+        
+        KEY user_id (user_id),
+        KEY course_id (course_id),
+        KEY paypal_subscription_id (paypal_subscription_id),
+        KEY status (status),
+        KEY started_at (started_at),
+        KEY user_course (user_id, course_id)
+    ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci made by require_once('wp-admin/network/admin.php'), require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('after_setup_theme'), WP_Hook->do_action, WP_Hook->apply_filters, {closure}, dbDelta
+[01-Aug-2026 20:14:59 UTC] === PayoutSystem::activate() called ===
+[01-Aug-2026 20:14:59 UTC] Table name: wp_bc82891ba1_withdrawal_requests
+[01-Aug-2026 20:14:59 UTC] Charset collate: DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci
+[01-Aug-2026 20:14:59 UTC] SQL: CREATE TABLE IF NOT EXISTS wp_bc82891ba1_withdrawal_requests (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            user_id BIGINT(20) UNSIGNED NOT NULL,
+            amount DECIMAL(10, 2) NOT NULL,
+            paypal_email VARCHAR(255) NOT NULL,
+            status ENUM('pending', 'approved', 'processing', 'paid', 'rejected', 'failed') DEFAULT 'pending',
+            transaction_id VARCHAR(255) DEFAULT NULL,
+            admin_notes LONGTEXT DEFAULT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            KEY user_id (user_id),
+            KEY status (status),
+            KEY created_at (created_at)
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+[01-Aug-2026 20:14:59 UTC] dbDelta result: Array
+(
+    [IF] => Created table IF
+)
+
+[01-Aug-2026 20:14:59 UTC] Audit SQL: CREATE TABLE IF NOT EXISTS wp_bc82891ba1_payout_audit_log (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            withdrawal_id BIGINT(20) UNSIGNED NOT NULL,
+            admin_id BIGINT(20) UNSIGNED,
+            action VARCHAR(50) NOT NULL,
+            notes LONGTEXT DEFAULT NULL,
+            response_data LONGTEXT DEFAULT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            KEY withdrawal_id (withdrawal_id),
+            KEY admin_id (admin_id),
+            FOREIGN KEY (withdrawal_id) REFERENCES wp_bc82891ba1_withdrawal_requests(id) ON DELETE CASCADE
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+[01-Aug-2026 20:14:59 UTC] dbDelta audit result: Array
+(
+    [IF] => Created table IF
+)
+
+[01-Aug-2026 20:14:59 UTC] === PayoutSystem::activate() completed ===
+[01-Aug-2026 20:14:59 UTC] DEBUG init: Rewrite rule registered for ^u/([^/]+)/?$
+[07-Aug-2026 01:45:06 UTC] objectcache.critical: Failed to locate and load Object Cache Pro plugin
+[07-Aug-2026 01:45:06 UTC] WordPress database error Duplicate key name 'paypal_subscription_id' for query CREATE TABLE IF NOT EXISTS wp_bc82891ba1_course_subscriptions (
+        id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        user_id BIGINT(20) UNSIGNED NOT NULL,
+        course_id BIGINT(20) UNSIGNED NOT NULL,
+        variation_index INT DEFAULT -1,
+        variation_label VARCHAR(255),
+        paypal_subscription_id VARCHAR(50) NOT NULL UNIQUE,
+        paypal_plan_id VARCHAR(50),
+        billing_type ENUM('onetime', 'weekly', 'monthly', 'yearly') DEFAULT 'onetime',
+        price DECIMAL(10, 2),
+        status ENUM('ACTIVE', 'SUSPENDED', 'CANCELLED', 'EXPIRED') DEFAULT 'ACTIVE',
+        started_at DATETIME,
+        updated_at DATETIME ON UPDATE CURRENT_TIMESTAMP,
+        cancelled_at DATETIME,
+        cancellation_reason VARCHAR(500),
+        paypal_payer_id VARCHAR(50),
+        paypal_payer_email VARCHAR(255),
+        next_billing_date DATE,
+        failed_attempts INT DEFAULT 0,
+        last_payment_date DATETIME,
+        last_payment_amount DECIMAL(10, 2),
+        
+        KEY user_id (user_id),
+        KEY course_id (course_id),
+        KEY paypal_subscription_id (paypal_subscription_id),
+        KEY status (status),
+        KEY started_at (started_at),
+        KEY user_course (user_id, course_id)
+    ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci made by require_once('wp-admin/network/admin.php'), require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('after_setup_theme'), WP_Hook->do_action, WP_Hook->apply_filters, {closure}, dbDelta
+[07-Aug-2026 01:45:06 UTC] === PayoutSystem::activate() called ===
+[07-Aug-2026 01:45:06 UTC] Table name: wp_bc82891ba1_withdrawal_requests
+[07-Aug-2026 01:45:06 UTC] Charset collate: DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci
+[07-Aug-2026 01:45:06 UTC] SQL: CREATE TABLE IF NOT EXISTS wp_bc82891ba1_withdrawal_requests (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            user_id BIGINT(20) UNSIGNED NOT NULL,
+            amount DECIMAL(10, 2) NOT NULL,
+            paypal_email VARCHAR(255) NOT NULL,
+            status ENUM('pending', 'approved', 'processing', 'paid', 'rejected', 'failed') DEFAULT 'pending',
+            transaction_id VARCHAR(255) DEFAULT NULL,
+            admin_notes LONGTEXT DEFAULT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            KEY user_id (user_id),
+            KEY status (status),
+            KEY created_at (created_at)
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+[07-Aug-2026 01:45:06 UTC] dbDelta result: Array
+(
+    [IF] => Created table IF
+)
+
+[07-Aug-2026 01:45:06 UTC] Audit SQL: CREATE TABLE IF NOT EXISTS wp_bc82891ba1_payout_audit_log (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            withdrawal_id BIGINT(20) UNSIGNED NOT NULL,
+            admin_id BIGINT(20) UNSIGNED,
+            action VARCHAR(50) NOT NULL,
+            notes LONGTEXT DEFAULT NULL,
+            response_data LONGTEXT DEFAULT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            KEY withdrawal_id (withdrawal_id),
+            KEY admin_id (admin_id),
+            FOREIGN KEY (withdrawal_id) REFERENCES wp_bc82891ba1_withdrawal_requests(id) ON DELETE CASCADE
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+[07-Aug-2026 01:45:06 UTC] dbDelta audit result: Array
+(
+    [IF] => Created table IF
+)
+
+[07-Aug-2026 01:45:06 UTC] === PayoutSystem::activate() completed ===
+[07-Aug-2026 01:45:06 UTC] DEBUG init: Rewrite rule registered for ^u/([^/]+)/?$
+[10-Aug-2026 17:22:49 UTC] objectcache.critical: Failed to locate and load Object Cache Pro plugin
+[10-Aug-2026 17:22:49 UTC] WordPress database error Duplicate key name 'paypal_subscription_id' for query CREATE TABLE IF NOT EXISTS wp_bc82891ba1_course_subscriptions (
+        id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        user_id BIGINT(20) UNSIGNED NOT NULL,
+        course_id BIGINT(20) UNSIGNED NOT NULL,
+        variation_index INT DEFAULT -1,
+        variation_label VARCHAR(255),
+        paypal_subscription_id VARCHAR(50) NOT NULL UNIQUE,
+        paypal_plan_id VARCHAR(50),
+        billing_type ENUM('onetime', 'weekly', 'monthly', 'yearly') DEFAULT 'onetime',
+        price DECIMAL(10, 2),
+        status ENUM('ACTIVE', 'SUSPENDED', 'CANCELLED', 'EXPIRED') DEFAULT 'ACTIVE',
+        started_at DATETIME,
+        updated_at DATETIME ON UPDATE CURRENT_TIMESTAMP,
+        cancelled_at DATETIME,
+        cancellation_reason VARCHAR(500),
+        paypal_payer_id VARCHAR(50),
+        paypal_payer_email VARCHAR(255),
+        next_billing_date DATE,
+        failed_attempts INT DEFAULT 0,
+        last_payment_date DATETIME,
+        last_payment_amount DECIMAL(10, 2),
+        
+        KEY user_id (user_id),
+        KEY course_id (course_id),
+        KEY paypal_subscription_id (paypal_subscription_id),
+        KEY status (status),
+        KEY started_at (started_at),
+        KEY user_course (user_id, course_id)
+    ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci made by require_once('wp-admin/network/admin.php'), require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('after_setup_theme'), WP_Hook->do_action, WP_Hook->apply_filters, {closure}, dbDelta
+[10-Aug-2026 17:22:49 UTC] === PayoutSystem::activate() called ===
+[10-Aug-2026 17:22:49 UTC] Table name: wp_bc82891ba1_withdrawal_requests
+[10-Aug-2026 17:22:49 UTC] Charset collate: DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci
+[10-Aug-2026 17:22:49 UTC] SQL: CREATE TABLE IF NOT EXISTS wp_bc82891ba1_withdrawal_requests (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            user_id BIGINT(20) UNSIGNED NOT NULL,
+            amount DECIMAL(10, 2) NOT NULL,
+            paypal_email VARCHAR(255) NOT NULL,
+            status ENUM('pending', 'approved', 'processing', 'paid', 'rejected', 'failed') DEFAULT 'pending',
+            transaction_id VARCHAR(255) DEFAULT NULL,
+            admin_notes LONGTEXT DEFAULT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            KEY user_id (user_id),
+            KEY status (status),
+            KEY created_at (created_at)
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+[10-Aug-2026 17:22:49 UTC] dbDelta result: Array
+(
+    [IF] => Created table IF
+)
+
+[10-Aug-2026 17:22:49 UTC] Audit SQL: CREATE TABLE IF NOT EXISTS wp_bc82891ba1_payout_audit_log (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            withdrawal_id BIGINT(20) UNSIGNED NOT NULL,
+            admin_id BIGINT(20) UNSIGNED,
+            action VARCHAR(50) NOT NULL,
+            notes LONGTEXT DEFAULT NULL,
+            response_data LONGTEXT DEFAULT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            KEY withdrawal_id (withdrawal_id),
+            KEY admin_id (admin_id),
+            FOREIGN KEY (withdrawal_id) REFERENCES wp_bc82891ba1_withdrawal_requests(id) ON DELETE CASCADE
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+[10-Aug-2026 17:22:49 UTC] dbDelta audit result: Array
+(
+    [IF] => Created table IF
+)
+
+[10-Aug-2026 17:22:49 UTC] === PayoutSystem::activate() completed ===
+[10-Aug-2026 17:22:50 UTC] DEBUG init: Rewrite rule registered for ^u/([^/]+)/?$
+[12-Aug-2026 18:45:04 UTC] objectcache.critical: Failed to locate and load Object Cache Pro plugin
+[12-Aug-2026 18:45:05 UTC] WordPress database error Duplicate key name 'paypal_subscription_id' for query CREATE TABLE IF NOT EXISTS wp_bc82891ba1_course_subscriptions (
+        id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+        user_id BIGINT(20) UNSIGNED NOT NULL,
+        course_id BIGINT(20) UNSIGNED NOT NULL,
+        variation_index INT DEFAULT -1,
+        variation_label VARCHAR(255),
+        paypal_subscription_id VARCHAR(50) NOT NULL UNIQUE,
+        paypal_plan_id VARCHAR(50),
+        billing_type ENUM('onetime', 'weekly', 'monthly', 'yearly') DEFAULT 'onetime',
+        price DECIMAL(10, 2),
+        status ENUM('ACTIVE', 'SUSPENDED', 'CANCELLED', 'EXPIRED') DEFAULT 'ACTIVE',
+        started_at DATETIME,
+        updated_at DATETIME ON UPDATE CURRENT_TIMESTAMP,
+        cancelled_at DATETIME,
+        cancellation_reason VARCHAR(500),
+        paypal_payer_id VARCHAR(50),
+        paypal_payer_email VARCHAR(255),
+        next_billing_date DATE,
+        failed_attempts INT DEFAULT 0,
+        last_payment_date DATETIME,
+        last_payment_amount DECIMAL(10, 2),
+        
+        KEY user_id (user_id),
+        KEY course_id (course_id),
+        KEY paypal_subscription_id (paypal_subscription_id),
+        KEY status (status),
+        KEY started_at (started_at),
+        KEY user_course (user_id, course_id)
+    ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci made by require_once('wp-admin/network/admin.php'), require_once('wp-admin/admin.php'), require_once('wp-load.php'), require_once('wp-config.php'), require_once('wp-settings.php'), do_action('after_setup_theme'), WP_Hook->do_action, WP_Hook->apply_filters, {closure}, dbDelta
+[12-Aug-2026 18:45:05 UTC] === PayoutSystem::activate() called ===
+[12-Aug-2026 18:45:05 UTC] Table name: wp_bc82891ba1_withdrawal_requests
+[12-Aug-2026 18:45:05 UTC] Charset collate: DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci
+[12-Aug-2026 18:45:05 UTC] SQL: CREATE TABLE IF NOT EXISTS wp_bc82891ba1_withdrawal_requests (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            user_id BIGINT(20) UNSIGNED NOT NULL,
+            amount DECIMAL(10, 2) NOT NULL,
+            paypal_email VARCHAR(255) NOT NULL,
+            status ENUM('pending', 'approved', 'processing', 'paid', 'rejected', 'failed') DEFAULT 'pending',
+            transaction_id VARCHAR(255) DEFAULT NULL,
+            admin_notes LONGTEXT DEFAULT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+            KEY user_id (user_id),
+            KEY status (status),
+            KEY created_at (created_at)
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+[12-Aug-2026 18:45:05 UTC] dbDelta result: Array
+(
+    [IF] => Created table IF
+)
+
+[12-Aug-2026 18:45:05 UTC] Audit SQL: CREATE TABLE IF NOT EXISTS wp_bc82891ba1_payout_audit_log (
+            id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            withdrawal_id BIGINT(20) UNSIGNED NOT NULL,
+            admin_id BIGINT(20) UNSIGNED,
+            action VARCHAR(50) NOT NULL,
+            notes LONGTEXT DEFAULT NULL,
+            response_data LONGTEXT DEFAULT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            KEY withdrawal_id (withdrawal_id),
+            KEY admin_id (admin_id),
+            FOREIGN KEY (withdrawal_id) REFERENCES wp_bc82891ba1_withdrawal_requests(id) ON DELETE CASCADE
+        ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci;
+[12-Aug-2026 18:45:05 UTC] dbDelta audit result: Array
+(
+    [IF] => Created table IF
+)
+
+[12-Aug-2026 18:45:05 UTC] === PayoutSystem::activate() completed ===
+[12-Aug-2026 18:45:05 UTC] DEBUG init: Rewrite rule registered for ^u/([^/]+)/?$

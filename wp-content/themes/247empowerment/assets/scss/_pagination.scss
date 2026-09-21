@@ -1,0 +1,35 @@
+@use 'variables' as * ;
+// pagination 
+
+.custom-pagination {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  .page-item {
+     border: none !important;
+      
+    .page-link {
+      border: none;
+      background: transparent;
+      color: var(--black);
+      font-size: 16px;
+      padding: 4px 8px;
+      transition: all 0.2s ease-in-out;
+          outline: none !important;
+      box-shadow: none !important;
+      
+    }
+
+    &.active .page-link {
+      background-color: var(--primary-color);
+      color: #fff;
+      font-weight: 500;
+    }
+
+    &.disabled .page-link {
+      color: #999;
+      pointer-events: none;
+    }
+  }
+}

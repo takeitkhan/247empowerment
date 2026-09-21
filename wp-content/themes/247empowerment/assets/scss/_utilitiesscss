@@ -1,0 +1,399 @@
+@use "variables" as *;
+
+.text-shadow-lg {
+  text-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
+}
+
+
+.container {
+  max-width: 1440px !important;
+  margin-right: 24px !important;
+  margin-left: 24px !important;
+  margin: 0 auto !important;
+}
+
+
+.container-home {
+  max-width: 1200px !important;
+}
+
+.bg-custom-gray {
+  background-color: #E7EEFB !important;
+  border: 1px solid #B5C9F2 !important;
+}
+
+.custom-card {
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+
+  h6 {
+    margin-top: 15px !important;
+  }
+  p {
+    line-height: 30px !important;
+  }
+}
+
+.custom-padding-top {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.img44 {
+  width: 44px !important;
+  height: 44px !important;
+}
+
+.img80 {
+  width: 80px !important;
+  height: 80px !important;
+
+  @media (max-width: 767.98px) {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .active-icon {
+    top: 65px;
+    right: 7px;
+  }
+}
+
+
+
+.gap12 {
+  gap: 12px;
+}
+
+.gap10 {
+  gap: 10px;
+}
+
+.img271 {
+  width: auto !important;
+  height: 271px !important;
+
+  img {
+    border-radius: 8px;
+  }
+}
+
+.img177 {
+  width: 177px !important;
+  height: 177px !important;
+}
+
+.img24 {
+  width: 24px;
+  height: 24px;
+}
+
+.img20 {
+  width: 20px;
+  height: 20px;
+}
+
+.img18 {
+  width: 18px;
+  height: 18px;
+}
+
+.img16 {
+  width: 16px;
+  height: 20px;
+}
+
+.img29 {
+  width: 29.27px;
+  height: 28.33px;
+}
+
+/* .img240 {
+  min-width: 240px;
+  height: 220px;
+
+  img {
+    border-radius: 6px;
+  }
+} */
+
+.img240 {
+  width: 240px;      // min-width নয়
+  height: 220px;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+  }
+}
+@media (max-width: 767px) {
+  .img240 {
+    width: 100%;
+    height: 200px;
+  }
+}
+@media (max-width: 576px) {
+  .gap-3 {
+    gap: .2rem !important;
+  }
+  .gap-4 {
+    gap: 1rem !important;
+  }
+}
+
+.border-underline {
+  border-bottom: 1px solid $supporting-neutral;
+}
+
+.bg-teal-100 {
+  background-color: #ccfbf1 !important;
+}
+
+// for select
+.custom-select {
+  border: none !important;
+  color: $neural-text !important;
+  font-size: 14px !important;
+  transition: all 0.3s ease;
+
+  //   &:hover,
+  //   &:focus {
+  //     border-color: #86b7fe;
+  //     box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+  //     background-color: #fff;
+  //   }
+}
+
+button.more-option {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+@media (max-width: 767.98px) {
+  .offcanvas-start {
+    width: 80% !important;
+  }
+
+  h1.fs-giant {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199.98px) {
+  h1.fs-giant {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  h1.fs-giant {
+    font-size: 2.5rem;
+  }
+}
+
+.text-green-color {
+  color: $green-color !important;
+}
+
+.text-blue-color {
+  color: $primary-color !important;
+}
+
+.text-gradient-color {
+  color: $linear-gradient !important;
+}
+
+.btn-custom {
+  background-color: transparent !important;
+  border: none !important;
+  color: inherit !important;
+
+  &:focus,
+  &:active {
+    box-shadow: 0 0 0 2px $primary-color !important;
+    outline: none;
+  }
+}
+
+.text-red-color {
+  color: $red-color !important;
+}
+
+.text-violet-color {
+  color: $violet-color !important;
+}
+
+.text-color-neutral {
+  color: $neural-text !important;
+}
+
+.text-color-neural {
+  color: $supporting-neutral !important;
+}
+
+.bg-neutral-color {
+  background-color: $supporting-neutral-hover !important;
+}
+
+.bg-blue-color {
+  background-color: $primary-color !important
+}
+
+.bg-supporting {
+  background-color: $supporting;
+}
+
+.btn {
+  &:hover {
+    background-color: transparent;
+  }
+}
+
+// Apply background color class
+.bg-supporting-neutral {
+  background-color: $supporting-neutral !important;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+
+  &:hover {
+    background-color: $supporting-neutral-hover !important;
+  }
+}
+
+.mr12 {
+  margin-right: 12px;
+}
+
+.mr10 {
+  margin-right: 10px;
+}
+
+.pt20 {
+  padding-top: 20px;
+}
+
+.portal-bg {
+  background-color: $portal-bg !important;
+}
+
+.img-white {
+  filter: brightness(0) invert(1);
+}
+
+.ml12 {
+  margin-right: 12px;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+.portal-title {
+  font-size: clamp(20px, 4vw, 24px) !important;
+  font-weight: bold !important;
+  color: $black !important;
+  text-align: center;
+}
+
+.profile-title {
+  font-size: clamp(20px, 4vw, 32px) !important;
+  font-weight: 500 !important;
+  color: $gray_black !important;
+}
+
+.fs14 {
+  font-size: 14px;
+}
+
+.modal-width {
+  max-width: 800px !important;
+  width: 100% !important;
+}
+
+.fs18 {
+  font-size: clamp(16px, 4vw, 18px) !important;
+  color: $gray_black;
+  font-weight: bold;
+  line-height: 1.6;
+}
+
+.fs20 {
+  font-size: clamp(18px, 4vw, 20px);
+  font-weight: bold;
+  line-height: 1.6;
+  color: $gray_black;
+}
+
+.pb-4 {
+  padding-bottom: 1.25rem !important;
+}
+
+.gradient-fs24 {
+  background: $linear-gradient;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: bold;
+}
+
+.fs32 {
+  background: $primary-color;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: clamp(24px, 2.5vw, 32px);
+  font-weight: bold;
+}
+
+.fs24 {
+  font-size: clamp(18px, 4vw, 24px);
+  font-weight: medium;
+  line-height: 1.6;
+  color: $gray_black;
+}
+
+// remove bootstrap default class
+.modal-header .btn-clos {
+  padding: 0;
+}
+
+.pb10 {
+  padding-bottom: 10px;
+}
+
+.modal-header {
+  border: none !important;
+}
+
+.copy-img {
+  width: 19.6px;
+  height: 19.6px;
+  object-fit: contain;
+}
+
+.w14 {
+  width: 14px;
+  height: 14px;
+}
+
+.img60 {
+  width: 60px;
+  height: 60px;
+}
+
+.dropdown-toggle::after {
+  display: none !important;
+  margin-left: 0;
+  vertical-align: 0;
+  content: "";
+  border-top: 0em solid;
+  border-right: 0em solid transparent;
+  border-bottom: 0;
+  border-left: 0em solid transparent;
+}

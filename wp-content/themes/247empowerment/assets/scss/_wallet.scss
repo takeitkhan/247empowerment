@@ -1,0 +1,17 @@
+.d-flex-wallet {
+  @media (min-width: 991px) and (max-width: 1160px) {
+    flex-direction: column !important;
+
+    >div {
+      width: 100% !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column !important;
+
+    >div {
+      width: 100% !important;
+    }
+  }
+}

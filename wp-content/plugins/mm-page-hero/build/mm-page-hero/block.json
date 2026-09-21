@@ -1,0 +1,58 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "mm-page-hero/mm-page-hero",
+  "version": "0.1.0",
+  "title": "Mathmozo Page Hero Block",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "Page Hero Block with Youtube Video, Background Image, Title and so on by Mathmozo IT",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "mm-page-hero",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js",
+  "attributes": {
+    "backgroundImage": {
+      "type": "string",
+      "default": ""
+    },
+    "youtubeID": {
+      "type": "string",
+      "default": ""
+    },
+    "customTitle": {
+      "type": "string",
+      "default": ""
+    },
+    "headingTag": {
+      "type": "string",
+      "default": "h2"
+    },
+    "zoomTime": {
+      "type": "string",
+      "default": ""
+    },
+    "zoomLink": {
+      "type": "string",
+      "default": ""
+    },
+    "zoomCode": {
+      "type": "string",
+      "default": ""
+    },
+    "zoomPassword": {
+      "type": "string",
+      "default": ""
+    },
+    "appointmentLink": {
+      "type": "string",
+      "default": ""
+    }
+  }
+}

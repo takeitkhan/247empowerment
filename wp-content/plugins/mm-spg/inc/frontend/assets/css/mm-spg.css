@@ -1,0 +1,282 @@
+/* MM Sweet Portal Guide - Modal MVP */
+
+.mm-spg-hidden {
+    display: none;
+}
+
+.mm-spg-modal {
+     position: fixed;   /* 🔥 change from absolute */
+    inset: 0;
+    z-index: 9999;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.mm-spg-backdrop {
+    position: fixed;   /* 🔥 ensure always fixed */
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.mm-spg-dialog {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 20px;
+
+    top: 1vh; /* starting position */
+
+    transition: transform 0.15s ease-out;
+    will-change: transform;
+}
+
+
+
+.mm-spg-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    border: none;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.mm-spg-avatar {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.mm-spg-title {
+    margin: 0 0 10px;
+    text-align: center;
+}
+
+.mm-spg-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;    
+    background: #fff;
+}
+
+/* Base button */
+.mm-spg-btn {
+    min-width: 110px;
+    height: 44px;
+    padding: 0 22px;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Pause (outlined) */
+.mm-spg-pause {
+    background: #ffffff;
+    color: #0d6efd;
+    border: 1.5px solid #0d6efd;
+}
+
+.mm-spg-pause:hover {
+    background: rgba(13, 110, 253, 0.05);
+}
+
+.mm-spg-pause:active {
+    transform: translateY(1px);
+}
+
+/* Next (primary) */
+.mm-spg-next {
+    background: linear-gradient(180deg, #1a73e8, #0d6efd);
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 6px 14px rgba(13, 110, 253, 0.25);
+}
+
+.mm-spg-next:hover {
+    background: linear-gradient(180deg, #1f7af0, #0b5ed7);
+    box-shadow: 0 8px 18px rgba(13, 110, 253, 0.3);
+}
+
+.mm-spg-next:active {
+    transform: translateY(1px);
+    box-shadow: 0 4px 10px rgba(13, 110, 253, 0.25);
+}
+
+/* Accessibility */
+.mm-spg-btn:focus-visible {
+    outline: 3px solid rgba(13, 110, 253, 0.35);
+    outline-offset: 2px;
+}
+
+/* Disabled state (optional) */
+.mm-spg-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.mm-spg-video {
+    margin-top: 15px;
+}
+
+.mm-spg-video iframe {
+    width: 100%;
+    height: 220px;
+    border-radius: 6px;
+}
+/* Highlighted element */
+.mm-spg-highlighted {
+    position: relative;
+    z-index: 10001;
+    box-shadow: 0 0 0 4px #4f46e5, 0 0 0 9999px rgba(0,0,0,0.55);
+    border-radius: 6px;
+    transition: box-shadow 0.3s ease;
+}
+
+/* Prevent layout issues */
+body.mm-spg-highlighting {
+    overflow-x: hidden;
+}
+.mm-spg-avatar {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 42px;
+    margin-top: -60px;
+}
+
+.mm-spg-avatar-choice {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.mm-spg-avatar-btn {
+    cursor: pointer;
+    font-size: 36px;
+    padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+}
+
+.mm-spg-avatar-btn:hover {
+    border-color: #4f46e5;
+}
+
+.mm-spg-avatar-btn img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.mm-spg-avatar-btn:hover img {
+    outline: 3px solid #4f46e5;
+}
+
+.mm-spg-selected-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+
+.mm-spg-launcher {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9998;
+    padding: 10px 14px;
+    border-radius: 50px;
+    background: #4f46e5;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.mm-spg-launcher:hover {
+    background: #4338ca;
+}
+
+
+
+/** NEW STYLES ADDED BELOW **/
+.welcome-header {
+    position: relative;
+    height: 120px;
+    background: linear-gradient(135deg, #f3d9ff 0%, #e2e7ff 100%);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    overflow: hidden;
+    z-index: -1;
+}
+.welcome-header h1 {
+    text-align: center;
+    padding: 20px 50px;
+    margin: 0;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+/* Wave */
+.welcome-header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -95px;
+    width: 100%;
+    height: 200px;
+    background: #fff;
+
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 200' preserveAspectRatio='none'%3E%3Cpath d='M0,35 C125,80 250,110 375,95 C450,85 500,70 625,80 C700,90 775,110 850,95 C900,85 950,65 1000,75 L1000,200 L0,200 Z'/%3E%3C/svg%3E")
+          no-repeat bottom / 100% 100%;
+
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 200' preserveAspectRatio='none'%3E%3Cpath d='M0,35 C125,80 250,110 375,95 C450,85 500,70 625,80 C700,90 775,110 850,95 C900,85 950,65 1000,75 L1000,200 L0,200 Z'/%3E%3C/svg%3E")
+          no-repeat bottom / 100% 100%;
+}
+
+.mm-spg-body {
+    padding: 20px 30px;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: Plus Jakarta Sans, sans-serif;    
+}
+
+/* Text tighter */
+.mm-spg-text p,
+.mm-spg-html p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+/* Lists tighter */
+.mm-spg-html ul {
+    padding-left: 18px;
+    margin-bottom: 10px;
+}
+
+.mm-spg-html li {
+    margin-bottom: 4px;
+}
+
+/* Video smaller */
+.mm-spg-video iframe {
+    height: 180px;
+    border-radius: 6px;
+}
+
+.mm-spg-error {
+    font-size: 14px;
+    font-weight: 500;
+}

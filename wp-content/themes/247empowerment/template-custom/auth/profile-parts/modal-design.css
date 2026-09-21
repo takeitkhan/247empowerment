@@ -1,0 +1,701 @@
+/* ===================================
+   PHASE 1: REDESIGNED POSTING MODAL
+   === Modern Design, Improved UX ===
+   =================================== */
+
+/* ============================================
+   MODAL CONTAINER & STRUCTURE
+   ============================================ */
+
+.posting-modal-dialog {
+    width: 95%;
+    max-width: 1200px;
+}
+
+.posting-modal-redesigned {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.posting-modal-header {
+    border-bottom: 1px solid #e9ecef;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+
+.posting-modal-content {
+    padding: 0;
+}
+
+.posting-modal-footer {
+    border-top: 1px solid #e9ecef;
+    padding: 0.75rem 1.5rem;
+    background: #f8f9fa;
+}
+
+/* ============================================
+   TABS STYLING
+   ============================================ */
+
+.posting-modal-tabs {
+    border-bottom: 2px solid #e9ecef;
+    padding: 0 1.5rem;
+    background: #ffffff;
+}
+
+.posting-modal-tabs .nav-tabs {
+    border-bottom: none;
+}
+
+.posting-modal-tabs .nav-link {
+    color: #6c757d;
+    border-bottom: 3px solid transparent;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s ease;
+    font-size: 13px;
+}
+
+.posting-modal-tabs .nav-link:hover {
+    color: #0d6efd;
+    border-bottom-color: #0d6efd;
+    background-color: transparent;
+}
+
+.posting-modal-tabs .nav-link.active {
+    color: #0d6efd;
+    border-bottom-color: #0d6efd;
+    background-color: transparent;
+}
+
+.posting-modal-tabs .nav-link i {
+    font-size: 1rem;
+}
+
+/* ============================================
+   MODAL BODY LAYOUT
+   ============================================ */
+
+.posting-moda1.5-body {
+    padding: 2rem;
+}
+
+.posting-editor {
+    position: relative;
+}
+
+.posting-textarea {
+    width: 100%;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    resize: none;
+    transition: all 0.3s ease;
+    line-height: 1.6;
+}
+
+.posting-textarea:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+    outline: none;
+}
+
+/* ============================================
+   CHARACTER COUNTER
+   ============================================ */
+
+.character-counter-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.character-counter {
+    font-size: 12px;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.character-progress {
+    flex: 1;
+}
+
+.character-progress .progress {
+    height: 4px;
+    background-color: #e9ecef;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.character-progress .progress-bar {
+    background: linear-gradient(90deg, #0d6efd, #0dcaf0);
+    transition: width 0.3s ease;
+}
+
+.character-progress .progress-bar.warning {
+    background: linear-gradient(90deg, #ffc107, #ff9800);
+}
+
+.character-progress .progress-bar.danger {
+    background: linear-gradient(90deg, #dc3545, #c82333);
+}
+
+/* ============================================
+   FORMATTING TOOLBAR
+   ============================================ */
+
+.posting-toolbar {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #e9ecef;
+}
+
+.posting-toolbar .btn {
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.posting-toolbar .btn:hover {
+    background-color: #e9ecef;
+    transform: translateY(-2px);
+}
+
+.posting-toolbar .btn.active {
+    background-color: #0d6efd;
+    color: white;
+    border-color: #0d6efd;
+}
+
+.posting-toolbar .vr {
+    margin: 0 4px;
+    height: 20px;
+}
+
+/* ============================================
+   EMOJI PICKER
+   ============================================ */
+
+.emoji-picker-wrapper {
+    margin-top: 8px;
+    padding: 8px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+emoji-picker {
+    --aside-width: 0;
+}
+
+/* ============================================
+   POST PREVIEW BOX
+   ============================================ */
+
+.posting-preview-box {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    overflow: hidden;
+    height: fit-content;
+}
+
+.preview-label {
+    padding: 8px 12px;
+    background: #ffffff;
+    border-bottom: 1px solid #dee2e6;
+    font-size: 13px;
+    font-weight: 600;
+    color: #495057;
+}
+
+.preview-content {
+    padding: 10px;
+    min-height: 150px;
+    max-height: 250px;
+    overflow-y: auto;
+    background: #ffffff;
+}
+
+.preview-content p {
+    margin: 0;
+    color: #212529;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.preview-content.has-content {
+    color: #212529;
+}
+
+/* ============================================
+   IMAGE UPLOAD & PREVIEW
+   ============================================ */
+
+.posting-image-section {
+    padding: 0;
+}
+
+.image-upload-box {
+    border: 2px dashed #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: #f8f9fa;
+}
+
+.image-upload-box:hover {
+    border-color: #0d6efd;
+    background: rgba(13, 110, 253, 0.05);
+}
+
+.image-upload-box.dragover {
+    border-color: #0d6efd;
+    background: rgba(13, 110, 253, 0.1);
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+}
+
+.image-upload-label {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+
+.upload-icon {
+    font-size: 32px;
+    color: #0d6efd;
+}
+
+.upload-text {
+    margin: 0;
+}
+
+.upload-text p {
+    margin: 0;
+}
+
+.image-preview-container {
+    position: relative;
+}
+
+.image-preview-container img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+.image-info {
+    text-align: left;
+    margin-top: 8px;
+}
+
+.remove-image-btn {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.image-preview-container:hover .remove-image-btn {
+    opacity: 1;
+}
+
+/* ============================================
+   ENHANCED PRIVACY SELECTOR
+   ============================================ */
+
+.posting-privacy-section {
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    margin-top: 1rem;
+}
+
+.posting-privacy-section .form-label {
+    color: #212529;
+    margin-bottom: 12px;
+}
+
+.privacy-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.privacy-option {
+    position: relative;
+}
+
+.privacy-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.privacy-option input[type="radio"]:checked + .privacy-label {
+    background: #ffffff;
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+}
+
+.privacy-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #ffffff;
+}
+
+.privacy-label:hover {
+    border-color: #0d6efd;
+    background: rgba(13, 110, 253, 0.02);
+}
+
+.privacy-icon {
+    font-size: 18px;
+    color: #0d6efd;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.privacy-text {
+    flex-grow: 1;
+}
+
+.privacy-text strong {
+    display: block;
+    color: #212529;
+    font-size: 14px;
+}
+
+.privacy-text small {
+    color: #6c757d;
+    font-size: 12px;
+}
+
+/* ============================================
+   SCHEDULE SECTION
+   ============================================ */
+
+.posting-schedule-section {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+.schedule-label {
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.schedule-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.schedule-inputs .form-label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #495057;
+    margin-bottom: 6px;
+}
+
+.schedule-inputs .form-control,
+.schedule-inputs .form-select {
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+    padding: 10px 12px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.schedule-inputs .form-control:focus,
+.schedule-inputs .form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+}
+
+.schedule-preview-box {
+    background: #e7f3ff;
+    border: 1px solid #b3d9ff;
+    border-radius: 6px;
+    padding: 12px;
+    margin-top: 12px;
+    color: #004085;
+}
+
+.schedule-preview-box small {
+    font-size: 12px;
+}
+
+.schedule-preview-box strong {
+    font-weight: 600;
+}
+
+/* ============================================
+   SUBMIT BUTTONS
+   ============================================ */
+
+.posting-submit-btn {
+    font-weight: 500;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.posting-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+}
+
+.posting-submit-btn:active {
+    transform: translateY(0);
+}
+
+.btn.btn-sm.btn-outline-primary:hover {
+    background-color: #0d6efd;
+    color: white;
+    border-color: #0d6efd;
+}
+
+.delete-scheduled-post:hover {
+    background-color: #dc3545;
+    color: white;
+    border-color: #dc3545;
+}
+
+.edit-scheduled-post:hover {
+    background-color: #0d6efd;
+    color: white;
+    border-color: #0d6efd;
+}
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 992px) {
+    .posting-modal-body {
+        padding: 1.5rem;
+    }
+
+    .posting-modal-redesigned {
+        max-height: 95vh;
+    }
+
+    .row.g-3 {
+        gap: 1.5rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .modal-dialog {
+        margin: 0.5rem;
+    }
+
+    .posting-modal-body {
+        padding: 1rem;
+    }
+
+    .posting-modal-header {
+        padding: 1rem;
+    }
+
+    .posting-modal-footer {
+        padding: 1rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .posting-textarea {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    .col-lg-6 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+
+    .privacy-options {
+        flex-direction: column;
+    }
+
+    .posting-submit-btn {
+        width: 100%;
+    }
+
+    .posting-preview-box {
+        min-height: 150px;
+    }
+}
+
+@media (max-width: 576px) {
+    .posting-modal-redesigned {
+        border-radius: 12px 12px 0 0;
+    }
+
+    .posting-modal-tabs .nav-link {
+        padding: 0.75rem 1rem;
+        font-size: 13px;
+    }
+
+    .posting-toolbar {
+        flex-wrap: wrap;
+    }
+
+    .posting-toolbar .btn {
+        padding: 0.35rem 0.5rem;
+        font-size: 12px;
+    }
+
+    .character-counter {
+        font-size: 11px;
+    }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.posting-modal-redesigned {
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-content {
+    animation: fadeIn 0.2s ease;
+}
+
+/* ============================================
+   STATUS INDICATORS (POSTS DISPLAY)
+   ============================================ */
+
+.post-status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.post-status-badge.published {
+    background: #d4edda;
+    color: #155724;
+}
+
+.post-status-badge.scheduled {
+    background: #cfe2ff;
+    color: #084298;
+}
+
+.post-status-badge.draft {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.post-status-badge.failed {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.scheduled-time-info {
+    font-size: 12px;
+    color: #6c757d;
+    margin-top: 4px;
+}
+
+/* ============================================
+   DARK MODE SUPPORT (Optional)
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+    .posting-modal-redesigned {
+        background-color: #2d2d2d;
+        color: #e0e0e0;
+    }
+
+    .posting-modal-header,
+    .posting-modal-footer {
+        background: #3d3d3d;
+        border-color: #4d4d4d;
+    }
+
+    .posting-modal-tabs {
+        border-color: #4d4d4d;
+    }
+
+    .posting-textarea {
+        background: #3d3d3d;
+        color: #e0e0e0;
+        border-color: #4d4d4d;
+    }
+
+    .posting-textarea:focus {
+        box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2);
+    }
+
+    .posting-toolbar {
+        background: #3d3d3d;
+        border-color: #4d4d4d;
+    }
+
+    .posting-preview-box,
+    .posting-privacy-section,
+    .posting-schedule-section {
+        background: #3d3d3d;
+        border-color: #4d4d4d;
+    }
+
+    .preview-label {
+        background: #2d2d2d;
+        border-color: #4d4d4d;
+    }
+
+    .preview-content {
+        background: #2d2d2d;
+    }
+
+    .preview-content p {
+        color: #e0e0e0;
+    }
+}

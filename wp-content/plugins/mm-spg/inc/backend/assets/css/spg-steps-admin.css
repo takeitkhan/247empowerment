@@ -1,0 +1,61 @@
+.spg-block {
+    border: 1px solid #ccd0d4;
+    background: #fff;
+    padding: 16px;
+    margin-bottom: 12px;
+    border-radius: 4px;
+    cursor: move;
+}
+
+.spg-block-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.spg-block-header strong {
+    font-size: 14px;
+}
+
+.spg-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 16px;
+}
+
+.spg-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.spg-field label {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.spg-field textarea {
+    min-height: 70px;
+}
+
+.spg-full {
+    grid-column: span 2;
+}
+
+.spg-wysiwyg iframe {
+    min-height: 120px;
+}
+
+
+.spg-remove {
+    color: #b32d2e;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.spg-placeholder {
+    border: 2px dashed #2271b1;
+    background: #f0f6fc;
+    height: 60px;
+    margin-bottom: 12px;
+}

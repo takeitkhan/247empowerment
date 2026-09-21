@@ -1,0 +1,115 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-mm-page-hero-mm-page-hero {
+	border: 0px dotted #f00;
+	background-color: unset;
+}
+
+
+@media (max-width: 767.98px) {
+	.bg-image {
+		min-height: 300px;
+		/* or whatever looks good */
+	}
+}
+
+.bg-image {
+	background-size: cover;
+	background-position: center;
+	position: relative;
+}
+
+.play-btn-wrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.play-btn {
+	background: red;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-size: 2rem;
+	cursor: pointer;
+	animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+	}
+
+	70% {
+		box-shadow: 0 0 0 20px rgba(255, 0, 0, 0);
+	}
+
+	100% {
+		box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+	}
+}
+
+.modal-dialog iframe {
+	width: 100%;
+	height: 400px;
+}
+
+.fs-giant {
+	font-size: 4rem;
+}
+
+.fs-giant strong {
+	color: #ffc107;
+}
+
+
+@media (max-width: 768px) {
+	.hero .col-12 {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	.hero .fs-giant {
+		font-size: 1.8rem;
+		/* Adjusted font size for smaller screens */
+	}
+
+	.bg-image {
+		background-size: cover;
+		background-position: center;
+		height: 250px;
+		/* Adjust the height for smaller screens */
+	}
+
+	.bg-light {
+		padding: 20px;
+	}
+
+	.modal-lg {
+		max-width: 100% !important;
+		/* Ensure video modal takes full width */
+	}
+}
+
+/* For smaller iPads (mini or Air) */
+@media (max-width: 1024px) {
+	.hero .col-md-6 {
+		flex: 1 0 100%;
+		/* Stacking elements in a column layout */
+	}
+
+	.bg-image {
+		height: 300px;
+		/* Adjusted height for better visibility */
+	}
+}

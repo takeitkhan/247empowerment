@@ -1,0 +1,69 @@
+@use "variables" as *;
+
+// global theme info for WordPress
+/*
+Theme Name: 247 Empowerment Teams
+Theme URI: https://mathmozo.com
+Author: Samrat Khan
+Version: 1.0
+Description: A custom theme for Personal Empowerment Teams.
+Requires at least: 6.7
+Tested up to: 6.7
+Requires PHP: 7.2
+Version: 1.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: custom-colors, custom-menu, multi-column, custom-logo, editor-style, featured-images, full-site-editing, block-patterns, rtl-language-support, sticky-post, threaded-comments, translation-ready, wide-blocks, block-styles, style-variations, accessibility-ready, blog, portfolio, news
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  font-family: $font-primary;
+  color: $black;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: none;
+}
+
+b, strong {
+  font-weight: 600 !important;
+}
+
+p {
+  padding: 5px 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.bg-dark-custom {
+  background-color: $portal-bg !important;
+}
+
+.footer-gradient {
+  background: $linear-gradient;
+}
+
+.text-custom-dark {
+  color: #09090a;
+}
+label {
+  margin: 5px 0 5px 0 !important;
+}
+.gap-3.post-row {
+  line-break: auto;
+}

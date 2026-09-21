@@ -1,0 +1,20 @@
+{
+    "name": "247empowerment-theme",
+    "version": "1.0.1",
+    "description": "WordPress theme 247empowerment with SCSS compilation",
+    "main": "index.js",
+    "scripts": {
+        "build-css": "sass assets/scss/custom-bootstrap.scss assets/css/output.css --style=compressed --quiet",
+        "watch-css": "sass --watch assets/scss/custom-bootstrap.scss:assets/css/output.css --style=compressed"
+    },
+    "author": "Md. Khalakuzzaman Khan",
+    "license": "ISC",
+    "devDependencies": {
+        "sass": "^1.97.2"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^6.5.0",
+        "bootstrap": "^5.3.3",
+        "toastify-js": "^1.12.0"
+    }
+}

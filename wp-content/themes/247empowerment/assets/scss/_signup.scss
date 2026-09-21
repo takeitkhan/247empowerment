@@ -1,0 +1,139 @@
+
+@use 'variables' as *;
+.gradient-text {
+  background: $linear-gradient;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 500;
+}
+
+.go-back {
+  background: none;
+  border: none;
+  color: $black;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: clamp(16px, 2vw, 18px);
+  font-weight: 500;
+
+  img {
+    width: 14px;
+    height: 14px;
+    margin-right: 8px;
+  }
+}
+
+/* sign up page */
+
+.singup-gradient-text {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 24;
+  font-size: 18px;
+  letter-spacing: 0%;
+  font-weight: 500;
+}
+
+.title {
+  font-size: clamp(20px, 4vw, 32px);
+  font-weight: 500;
+  font-style: normal;
+}
+
+.step-card {
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.step-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.ellipse-size {
+  margin-right: 150px;
+}
+
+.s-card,
+.s-card2,
+.s-card3,
+.s-card4 {
+  max-width: 418px;
+  width: 100%;
+  border-radius: 4px;
+  padding: 12px 20px;
+  min-height: 101px;
+}
+
+.s-card {
+  background-color: $light-blue;
+  margin-left: auto;
+}
+
+.s-card2 {
+  background-color: $pink-light;
+  margin-right: auto;
+  margin-top: 28px;
+}
+
+.s-card3 {
+  background-color: $light-blue;
+  margin-left: auto;
+  margin-top: 28px;
+}
+
+.s-card4 {
+  background-color: $pink-light;
+  margin-right: auto;
+  margin-top: 28px;
+}
+
+.number-sign {
+  font-weight: 500;
+  font-size: clamp(24px, 5vw, 48px);
+  line-height: 160%;
+  letter-spacing: 0%;
+  color: $black;
+}
+
+.c-title {
+  font-weight: 700;
+  font-size: clamp(18px, 2.5vw, 24px);
+  line-height: 1.6;
+  letter-spacing: 0;
+  background: $linear-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+.logo{
+  width: 80px;
+  height: 80px;
+}
+.c-des {
+  font-weight: 400;
+  font-style: normal;
+  line-height: 160%;
+  letter-spacing: 0%;
+  color: $black;
+}
+
+.img-position {
+  opacity: 0.6;
+  right: 0;
+}
+
+.border-singup {
+  border-left: 2px solid $light-blue;
+}
+
+/* sign up page */

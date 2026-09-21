@@ -1,0 +1,75 @@
+@use 'variables' as *;
+.input {
+  padding: clamp(8px, 1.2vw, 10px) clamp(10px, 1.5vw, 16px) !important;
+
+  border: 1px solid $supporting-neutral !important;
+  border-radius: 4px;
+  width: 100%;
+  color: $neural-text !important;
+  background-color: $supporting-neutral-hover;
+  transition: all 0.3s ease;
+  outline: none !important;
+  position: relative;
+ 
+  &::placeholder {
+    color: $supporting-neutral !important;
+    opacity: 0.8;
+    transition: color 0.3s ease;
+  }
+
+  &:focus {
+    color: $black !important;
+    background-color: #fff;
+    border-color: $supporting-neutral !important;
+    box-shadow: 0 0 0 2px $primary-color; // Primary color ring
+    
+  }
+
+  &:disabled {
+    background-color: rgba(190, 201, 229, 0.2);
+    color: #b5b5b5;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+}
+
+//  padding: clamp(8px, 1.2vw, 10px) clamp(10px, 1.5vw, 12px);
+
+.input-img-file {
+  padding: 10px 16px !important;
+  border: 1px solid $supporting-neutral !important;
+  border-radius: 4px;
+  width: 100%;
+  color: $neural-text !important;
+  background-color: $supporting-neutral-hover;
+  transition: all 0.3s ease;
+  outline: none !important;
+  position: relative;
+ 
+  &::placeholder {
+    color: $supporting-neutral !important;
+    opacity: 0.8;
+    transition: color 0.3s ease;
+  }
+
+  &:focus {
+    color: $black !important;
+    background-color: #fff;
+    border-color: $supporting-neutral !important;
+    box-shadow: 0 0 0 2px $primary-color; // Primary color ring
+    
+  }
+
+  &:disabled {
+    background-color: rgba(190, 201, 229, 0.2);
+    color: #b5b5b5;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+}
+
+.form-check-input:checked{
+  background-color: $primary-color !important;
+}
+
+

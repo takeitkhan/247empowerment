@@ -1,0 +1,131 @@
+@use "variables" as *;
+
+.landing-header-container {
+  max-width: 1240px;
+}
+
+.custom-btn {
+  width: auto;
+  /* Ensure buttons don't stretch */
+  display: inline-block;
+  /* Keep them inline */
+}
+.post-image-container {
+    width: 100%;       /* Full width */
+    height: 300px;     /* Fixed height */
+    overflow: hidden;  /* Hide overflow */
+    border-radius: 8px; /* optional rounded corners */
+}
+
+.post-image-container img {
+    object-fit: cover; /* Scale image to fill while keeping aspect ratio */
+    width: 100%;
+    height: 100%;
+}
+.custom-btn-signup {
+  background: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: $linear-gradient;
+  font-size: clamp(16px, 1vw, 18px);
+  font-weight: 500;
+  line-height: 1.6;
+  border: 1px solid transparent;
+  border-radius: clamp(4px, 0.6vw, 8px);
+  width: 100%;
+  padding: clamp(8px, 1.2vw, 10px) clamp(10px, 1.5vw, 16px);
+  transition: all 0.4s ease;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 4px;
+    padding: 1px;
+    background: $linear-gradient;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  &:hover {
+    background: $linear-gradient;
+    -webkit-text-fill-color: $white;
+    color: $white;
+  }
+}
+
+
+// alert
+
+.alert-bg {
+  background-color: $notification;
+}
+
+/* default: auto width */
+.c-btn {
+  width: auto;
+}
+
+/* small screens: full width */
+@media (max-width: 767.98px) {
+  .c-btn {
+    width: 100% !important;
+    display: block !important;
+  }
+}
+
+
+.input-message {
+  padding: 10px 16px !important;
+  border: 1px solid $supporting-neutral !important;
+  border-radius: 4px;
+  width: 100%;
+  color: #a0abc7 !important;
+  background-color: rgba(190, 201, 229, 0.1);
+  transition: all 0.3s ease;
+  outline: none !important;
+  position: relative;
+  padding-left: 40px !important;
+  border-top-left-radius: 4px !important;
+  border-bottom-left-radius: 4px !important;
+
+  &::placeholder {
+    color: $supporting-neutral !important;
+    opacity: 0.8;
+    transition: color 0.3s ease;
+    z-index: -1;
+  }
+
+  &:focus {
+    color: $black !important;
+    background-color: #fff;
+    border-color: $supporting-neutral !important;
+    box-shadow: 0 0 0 2px $white, 0 0 0 4px $primary-color; // Primary color ring
+    z-index: -1;
+
+  }
+
+  &:disabled {
+    background-color: rgba(190, 201, 229, 0.2);
+    color: #b5b5b5;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+}
+
+// for profile 
+.img100 {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  ;
+}
+
+.gap20 {
+  gap: 20px;
+}

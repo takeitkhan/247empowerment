@@ -1,0 +1,125 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "ub/styled-list",
+	"title": "Styled List",
+	"category": "ultimateblocks",
+	"description": "This block lets you add a styled list in your post or pages. Instead of bullets you can use various icons as your list style type. ",
+	"keywords": [
+		"List",
+		"Styled List",
+		"Ultimate Blocks"
+	],
+	"attributes": {
+		"blockID": {
+			"type": "string",
+			"default": ""
+		},
+		"list": {
+			"type": "string",
+			"default": ""
+		},
+		"selectedIcon": {
+			"type": "string",
+			"default": "check"
+		},
+		"iconSource": {
+			"type": "string",
+			"default": "fontawesome"
+		},
+		"customIconSVG": {
+			"type": "string",
+			"default": ""
+		},
+		"alignment": {
+			"type": "string",
+			"default": "left"
+		},
+		"listAlignment": {
+			"type": "string",
+			"default": ""
+		},
+		"iconColor": {
+			"type": "string",
+			"default": "#000000"
+		},
+		"iconSize": {
+			"type": "number",
+			"default": 5
+		},
+		"fontSize": {
+			"type": "number",
+			"default": 0
+		},
+		"itemSpacing": {
+			"type": "number",
+			"default": 0
+		},
+		"columns": {
+			"type": "number",
+			"default": 1
+		},
+		"tabletColumns": {
+			"type": "number"
+		},
+		"maxMobileColumns": {
+			"type": "number",
+			"default": 1
+		},
+		"isRootList": {
+			"type": "boolean",
+			"default": false
+		},
+		"textColor": {
+			"type": "string",
+			"default": ""
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": ""
+		},
+		"padding": {
+			"type": "object",
+			"default": {}
+		},
+		"margin": {
+			"type": "object",
+			"default": {}
+		},
+		"listFontFamily": {
+			"type": "string",
+			"default": ""
+		},
+		"listFontSize": {
+			"type": "string",
+			"default": ""
+		},
+		"listFontAppearance": {
+			"type": "object",
+			"default": {
+				"fontStyle": "",
+				"fontWeight": ""
+			}
+		},
+		"listLineHeight": {
+			"type": "string",
+			"default": ""
+		},
+		"listLetterSpacing": {
+			"type": "string",
+			"default": ""
+		},
+		"listTextDecoration": {
+			"type": "string",
+			"default": ""
+		},
+		"listTextTransform": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {},
+	"editorStyle": "ultimate_blocks-cgb-block-editor-css",
+	"editorScript": "ultimate_blocks-cgb-block-js",
+	"style": "ultimate_blocks-cgb-style-css"
+}

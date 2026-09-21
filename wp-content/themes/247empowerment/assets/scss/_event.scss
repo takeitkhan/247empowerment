@@ -1,0 +1,50 @@
+@use 'variables' as *;
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .res-card {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+}
+
+
+// modal 
+
+.modal-content {
+  border-radius: 16px;
+}
+
+.event-cover-upload {
+  height: 94px;
+  background-color: $supporting-neutral-hover; // soft neutral tone
+  border: 1px dashed $supporting-neutral; // light gray border
+  border-radius:4px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .icon-img {
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+}
+}
+
+.avatar-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #fff; // clean white border for separation
+  object-fit: cover;
+  margin-left: -20px; // overlap effect
+  transition: transform 0.2s ease;
+
+  &:first-child {
+    margin-left: 0; // first one not overlapped
+  }
+}
+
+

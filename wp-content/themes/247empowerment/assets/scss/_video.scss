@@ -1,0 +1,149 @@
+@use "variables" as *;
+
+.fs48 {
+    font-size: clamp(28px, 4vw, 48px) !important;
+    color: $gray_black;
+    font-weight: medium;
+    line-height: 1.6;
+}
+
+.container1030 {
+    max-width: 1130px !important;
+    padding-right: 24px !important;
+    padding-left: 24px !important;
+    margin: 0 auto 30px auto !important;
+}
+
+.video-responsive-fixed-height {
+    /* This ensures the wrapper takes up 100% of its parent's width */
+    width: 100%;
+
+    /* Set the fixed height */
+    height: 452px;
+
+    /* Ensures the iframe does not exceed the wrapper's boundaries */
+    overflow: hidden;
+
+    /* Nested rule for the iframe element inside the container */
+    iframe {
+        /* Make the iframe fill the wrapper */
+        width: 100%;
+        height: 100%;
+        border-radius: 1rem;
+        /* Optional: Ensures the iframe itself is block-level */
+        display: block;
+    }
+}
+
+// SCSS from previous response (Still correct for IFRAME implementation)
+
+.video-card {
+    position: relative; // Crucial for positioning the absolute overlay
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 1rem;
+
+    .video-thumbnail {
+        // This targets both the <img> and the <iframe> used as a thumbnail
+        width: 100%;
+        height: 100%; // Important for filling the parent's fixed height
+        display: block;
+        // ... other visual effects (e.g., transition)
+    }
+}
+
+// Large Featured Video Banner (fixed height 452px)
+.featured-video {
+    height: 452px; // Defines the fixed height
+
+    .video-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        // ... other styles for the gradient, text, and play button
+    }
+
+    // ... other styles
+}
+
+// Smaller Playlist/Video Cards (fixed height 200px)
+.playlist-card {
+    height: 282px; // Defines the fixed height
+    margin-bottom: 1.5rem;
+    // ... other styles
+}
+
+
+.yt-playlist {
+    .thumb-wrapper {
+        position: relative;
+        border-radius: 12px;
+        margin-right: 16px;
+        height: 282.5px;
+        background: #ddd;
+
+        iframe,
+        img {
+            border-radius: 1rem;
+        }
+
+        .t-wrapper1 {
+            position: absolute;
+            top: 0;
+            margin-top: -8px;
+            left: 8px;
+            width: 100%;
+            border-radius: 16px;
+            height: 100%;
+            background: rgba(190, 201, 229, 0.5);
+            z-index: -1;
+        }
+
+        .t-wrapper2 {
+            position: absolute;
+            top: 0;
+            margin-top: -16px;
+            left: 16px;
+            width: 100%;
+            border-radius: 16px;
+            height: 100%;
+            background: rgba(190, 201, 229, 0.5);
+            z-index: -2;
+        }
+
+        .thumb {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-count {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            background: rgba(0, 0, 0, 0.75);
+            color: #fff;
+            font-size: 13px;
+            padding: 6px 10px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+
+            i {
+                font-size: 14px;
+            }
+        }
+    }
+
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .yt-playlist .thumb-wrapper {
+        height: 240px;
+    }
+}

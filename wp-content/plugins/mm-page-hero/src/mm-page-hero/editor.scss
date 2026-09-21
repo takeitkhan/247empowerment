@@ -1,0 +1,97 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+ .wp-block-mm-page-hero-mm-page-hero {
+	border: 0px dotted #f00;
+	background-color: unset;
+ }
+
+.two-column-hero {
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+	align-content: center;
+
+	.mmblock-left,
+	.mmblock-right {
+		width: 50%;
+	}
+
+	.mmblock-left {
+		min-height: 300px;
+		background-size: cover;
+		background-position: center;
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.mmblock-play-button {
+		position: relative;
+		width: 80px;
+		height: 80px;
+
+		.play-btn {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			font-size: 30px;
+			background: red;			
+			border: none;
+			border-radius: 50%;
+			width: 60px;
+			height: 60px;
+			cursor: pointer;
+			z-index: 2;
+		}
+
+		.pulse {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 80px;
+			height: 80px;
+			transform: translate(-50%, -50%);
+			border-radius: 50%;
+			background: rgba(255, 0, 0, 0.4);
+			animation: pulse 1.5s infinite;
+			z-index: 1;
+		}
+	}
+
+	.mmblock-right {
+		padding: 20px;		
+
+		h2 {
+			color: #222;
+			margin-bottom: 10px;
+		}
+
+		.zoom-info {
+			background: #fffbe6;
+			padding: 10px;
+			margin-top: 20px;
+			border-left: 4px solid #ff9900;
+
+			p {
+				margin: 5px 0;
+			}
+		}
+	}
+}
+
+@keyframes pulse {
+	0% {
+		transform: translate(-50%, -50%) scale(1);
+		opacity: 1;
+	}
+
+	100% {
+		transform: translate(-50%, -50%) scale(1.6);
+		opacity: 0;
+	}
+}

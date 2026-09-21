@@ -1,0 +1,10 @@
+.spg-drag-handle {
+    cursor: move;
+    color: #2271b1;
+    font-size: 18px;
+}
+
+.wp-list-table td.spg_drag {
+    width: 10px;
+    text-align: center;
+}

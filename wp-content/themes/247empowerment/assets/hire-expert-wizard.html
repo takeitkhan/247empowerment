@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hire an Expert - Personal Empowerment Teams</title>
+    <style>
+/* ==========================================================================
+   Personal Empowerment Teams — intake wizard styles (WordPress embed build)
+   Everything is scoped under #wizard-root so it cannot leak out and affect
+   the rest of your WordPress theme's styling.
+   ========================================================================== */
+
+#wizard-root{
+  --bg:#F6F3EC;
+  --surface:#FFFFFF;
+  --surface-2:#FBF8F2;
+  --ink:#1B2430;
+  --ink-soft:#5B6472;
+  --ink-faint:#8A9099;
+  --border:#E4DFD3;
+  --accent:#1F6F64;
+  --accent-ink:#FFFFFF;
+  --accent-soft:#E3EEEA;
+  --accent-hover:#195A51;
+  --shadow: 0 1px 2px rgba(27,36,48,0.06), 0 8px 24px -12px rgba(27,36,48,0.18);
+  --focus:#1F6F64;
+
+  font-family: inherit;
+}
+
+@media (prefers-color-scheme: dark){
+  #wizard-root{
+    --bg:#12161C;
+    --surface:#181D25;
+    --surface-2:#1D232C;
+    --ink:#EBEEF2;
+    --ink-soft:#9BA4B2;
+    --ink-faint:#6E7684;
+    --border:#2A313C;
+    --accent:#4FBFAE;
+    --accent-ink:#0B1512;
+    --accent-soft:#1B2E2B;
+    --accent-hover:#6ACEC0;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 12px 28px -14px rgba(0,0,0,0.6);
+    --focus:#4FBFAE;
+  }
+}
+
+#wizard-root, #wizard-root *{ box-sizing:border-box; }
+#wizard-root{ line-height:1.5; }
+#wizard-root h3{ font-family:inherit; font-weight:600; text-wrap:balance; letter-spacing:-0.01em; margin:0; color:var(--ink); }
+#wizard-root p{ font-family:inherit; margin:0; }
+#wizard-root a{ font-family:inherit; color:inherit; text-decoration:none; }
+#wizard-root button{ font-family:inherit; color:inherit; }
+#wizard-root input, #wizard-root textarea{ font-family:inherit; }
+#wizard-root :focus-visible{ outline:2px solid var(--focus); outline-offset:2px; }
+#wizard-root ::selection{ background:var(--accent-soft); }
+
+#wizard-root .btn{
+  appearance:none; border:none; cursor:pointer; border-radius:9px;
+  font-size:14.5px; font-weight:600; padding:13px 22px;
+  display:inline-flex; align-items:center; gap:8px; font-family:inherit;
+}
+#wizard-root .btn-primary{ background:var(--accent); color:var(--accent-ink); }
+#wizard-root .btn-primary:hover{ background:var(--accent-hover); }
+#wizard-root .btn-ghost{ background:var(--surface); color:var(--ink); border:1px solid var(--border); }
+#wizard-root .btn-ghost:hover{ background:var(--accent-soft); }
+#wizard-root .btn[disabled]{ opacity:0.55; cursor:not-allowed; }
+
+#wizard-root .wizard-card{ background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:32px; box-shadow:var(--shadow); max-width:640px; margin:0 auto; color:var(--ink); }
+@media (max-width:640px){ #wizard-root .wizard-card{ padding:22px; } }
+#wizard-root .wizard-block-tag{ font-size:11px; letter-spacing:0.07em; text-transform:uppercase; font-weight:600; color:var(--accent); margin:0 0 8px; }
+#wizard-root .wizard-card h3{ font-size:19px; font-weight:600; margin:0 0 6px; }
+#wizard-root .wizard-card .sub{ font-size:13.5px; color:var(--ink-soft); line-height:1.55; margin:0 0 20px; }
+#wizard-root .wizard-progress{ height:6px; background:var(--border); border-radius:999px; margin-bottom:28px; overflow:hidden; }
+#wizard-root .wizard-progress > span{ display:block; height:100%; background:var(--accent); border-radius:999px; transition:width .2s ease; }
+#wizard-root .wizard-options{ display:grid; gap:10px; }
+#wizard-root .wizard-option{
+  text-align:left; cursor:pointer; background:var(--surface); border:1px solid var(--border); border-radius:10px;
+  padding:14px 16px; font:inherit; font-size:14.5px; color:var(--ink);
+  display:flex; align-items:center; justify-content:space-between; gap:10px;
+}
+#wizard-root .wizard-option:hover{ border-color:var(--accent); background:var(--accent-soft); }
+#wizard-root .wizard-option.selected{ border:2px solid var(--accent); background:var(--accent-soft); color:var(--accent); font-weight:600; padding:13px 15px; }
+#wizard-root .wizard-check{ color:var(--accent); flex:none; }
+#wizard-root .wizard-actions{ display:flex; gap:12px; margin-top:20px; }
+#wizard-root .wizard-actions .btn-primary{ flex:1; justify-content:center; }
+#wizard-root .wizard-field{ margin-bottom:14px; }
+#wizard-root .wizard-field label{ display:block; font-size:12.5px; font-weight:600; color:var(--ink-soft); margin-bottom:6px; }
+#wizard-root .wizard-field input, #wizard-root .wizard-field textarea, #wizard-root .wizard-field-input{
+  font-family:inherit; font-size:14px; color:var(--ink); background:var(--surface-2);
+  border:1px solid var(--border); border-radius:8px; padding:11px 12px; width:100%;
+}
+#wizard-root .wizard-field textarea, #wizard-root .wizard-field-input[rows]{ resize:vertical; min-height:90px; }
+#wizard-root .wizard-field input:focus, #wizard-root .wizard-field textarea:focus, #wizard-root .wizard-field-input:focus{ border-color:var(--accent); }
+#wizard-root .wizard-note-card{ background:var(--surface-2); border:1px solid var(--border); border-radius:10px; padding:14px 16px; margin-bottom:20px; font-size:13.5px; color:var(--ink-soft); line-height:1.6; }
+#wizard-root .wizard-note-card strong{ color:var(--ink); }
+#wizard-root .wizard-badge-row{ display:flex; gap:8px; flex-wrap:wrap; }
+#wizard-root .wizard-badge{
+  font-size:12.5px; font-weight:600; padding:7px 14px; border-radius:999px; border:1px solid var(--border);
+  background:var(--surface); cursor:pointer; color:var(--ink-soft); font-family:inherit;
+}
+#wizard-root .wizard-badge.selected{ border-color:var(--accent); color:var(--accent); background:var(--accent-soft); }
+#wizard-root .wizard-dropzone{
+  width:100%; text-align:center; cursor:pointer; border:1px dashed var(--border); border-radius:10px;
+  padding:14px; font-size:13.5px; color:var(--ink-soft); background:var(--surface-2); font-family:inherit;
+}
+#wizard-root .wizard-dropzone:hover{ border-color:var(--accent); color:var(--accent); }
+#wizard-root .wizard-file-list{ display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+#wizard-root .wizard-file{ display:flex; align-items:center; gap:6px; font-size:12.5px; background:var(--surface-2); border:1px solid var(--border); border-radius:999px; padding:6px 8px 6px 12px; color:var(--ink-soft); }
+#wizard-root .wizard-file button{ background:none; border:none; cursor:pointer; color:var(--ink-faint); font-size:13px; padding:0; line-height:1; }
+#wizard-root .wizard-error{ color:#b91c1c; font-size:13px; margin-top:2px; }
+    </style>
+</head>
+<body>
+<div id="wizard-root"></div>
+
+<script>
+(function () {
+  var root = document.getElementById('wizard-root');
+  if (!root) return;
+
+  var BOOKING_LINK = 'book-a-call.html';
+  var CONTACT_EMAIL = 'hello@personalempowermentteams.me';
+  var CC_EMAILS = ['hashammuhammad148@gmail.com', 'theshaam@icloud.com'];
+
+  // Service categories mapping
+  var SERVICE_CATEGORIES = {
+    'Website & App Development': ['Frontend Development', 'Backend Development', 'Full Stack', 'Mobile App', 'PWA', 'API Integration'],
+    'Marketing & SEO': ['SEO Optimization', 'Content Marketing', 'Email Marketing', 'Social Media Strategy', 'PPC Campaigns', 'Analytics'],
+    'Design & Branding': ['UI/UX Design', 'Logo Design', 'Brand Identity', 'Web Design', 'Graphics Design', 'Branding Strategy'],
+    'Video & Content Production': ['Video Editing', 'Scriptwriting', 'Animation', 'Live Streaming', 'Photography', 'Thumbnail Design'],
+    'AI & Automation': ['ChatBot Development', 'Machine Learning', 'Process Automation', 'AI Integration', 'Natural Language Processing'],
+    'Ecommerce': ['Store Setup', 'Product Photography', 'Payment Integration', 'Inventory Management', 'Marketing Strategy'],
+    'Payments & Online Checkout': ['Payment Gateway Setup', 'Stripe Integration', 'PayPal Setup', 'Subscription Billing', 'Fraud Prevention'],
+    'Marketing & Outreach': ['Email Campaigns', 'Ad Management', 'Lead Generation', 'Customer Retention', 'Partnership Development'],
+    'Healthcare & Medical': ['HIPAA Compliance', 'Telemedicine Setup', 'Medical Records Management', 'Patient Portal'],
+    'Technology & Software': ['Custom Software', 'Cloud Solutions', 'DevOps', 'Database Design', 'System Architecture'],
+    'Game Development': ['Game Design', '2D/3D Development', 'Graphics Programming', 'Game Physics', 'Multiplayer Systems'],
+    'Advanced Technology': ['AR/VR', 'Blockchain', 'IoT Solutions', 'Quantum Computing', 'Advanced Algorithms'],
+    'Cybersecurity & IT': ['Security Audit', 'Penetration Testing', 'Network Security', 'Data Protection', 'Compliance'],
+    'Sales & Business Growth': ['Sales Funnel', 'Lead Nurturing', 'Conversion Optimization', 'Revenue Growth', 'Market Expansion'],
+    'Coaching & Team Training': ['Leadership Training', 'Skill Development', 'Team Building', 'Career Coaching', 'Executive Coaching'],
+    'AI Help & Coaching': ['AI Strategy', 'LLM Integration', 'AI Consulting', 'Training & Workshops', 'AI Ethics'],
+    'Ministry & Spirituality': ['Website Design', 'Community Management', 'Event Planning', 'Donation Platform', 'Spiritual Content'],
+    'Nonprofits & Fundraising': ['Grant Writing', 'Fundraising Strategy', 'Donor Management', 'Event Coordination', 'Impact Reporting'],
+    'Business & Entrepreneurship': ['Business Planning', 'Startup Consulting', 'Market Research', 'Financial Planning', 'Growth Strategy'],
+    'Legal & Business Protection': ['Contract Review', 'Legal Compliance', 'Intellectual Property', 'Business Structure', 'Risk Management'],
+    'Money & Financial Tools': ['Accounting', 'Tax Planning', 'Financial Analysis', 'Budget Management', 'Investment Planning'],
+    'Health & Wellness': ['Nutrition Coaching', 'Fitness Planning', 'Mental Health Support', 'Wellness Programs', 'Lifestyle Coaching'],
+    'Something else / not sure': ['Consultation', 'Strategy Session', 'Assessment', 'Custom Solution', 'Need More Info']
+  };
+
+  // Wizard state
+  var state = {
+    step: 0,
+    goal: null,
+    categories: [],
+    name: window.userFormData?.name || '',
+    email: window.userFormData?.email || '',
+    phone: window.userFormData?.phone || '',
+  };
+
+  var FINAL_STEP = 3; // goal -> categories -> contact info -> review
+
+  // Render functions
+  function render() {
+    var content = '';
+
+    if (state.step === 0) {
+      // Step 1: Select Goal/Service
+      content = renderGoalSelection();
+    } else if (state.step === 1) {
+      // Step 2: Select Categories
+      content = renderCategorySelection();
+    } else if (state.step === 2) {
+      // Step 3: Contact Information
+      content = renderContactInfo();
+    } else if (state.step === 3) {
+      // Step 4: Review & Submit
+      content = renderReview();
+    }
+
+    root.innerHTML = content;
+    attachEventListeners();
+  }
+
+  function renderGoalSelection() {
+    var progress = Math.round((state.step / FINAL_STEP) * 100);
+    var html = '<div class="wizard-card">';
+    html += '<div class="wizard-block-tag">Step 1 of ' + (FINAL_STEP + 1) + '</div>';
+    html += '<h3>What type of expert do you need?</h3>';
+    html += '<p class="sub">Select the service category that best fits your project.</p>';
+    html += '<div class="wizard-progress"><span style="width: ' + progress + '%"></span></div>';
+    html += '<div class="wizard-options">';
+
+    for (var goal in SERVICE_CATEGORIES) {
+      var selected = state.goal === goal ? ' selected' : '';
+      html += '<button class="wizard-option' + selected + '" data-goal="' + escapeHtml(goal) + '">';
+      html += escapeHtml(goal);
+      if (selected) html += ' <span class="wizard-check">✓</span>';
+      html += '</button>';
+    }
+
+    html += '</div>';
+    html += '<div class="wizard-actions">';
+    html += '<button class="btn btn-primary" data-action="next" disabled>Continue</button>';
+    html += '</div>';
+    html += '</div>';
+
+    return html;
+  }
+
+  function renderCategorySelection() {
+    var progress = Math.round((state.step / FINAL_STEP) * 100);
+    var categories = SERVICE_CATEGORIES[state.goal] || [];
+    
+    var html = '<div class="wizard-card">';
+    html += '<div class="wizard-block-tag">Step 2 of ' + (FINAL_STEP + 1) + '</div>';
+    html += '<h3>Select relevant areas for ' + escapeHtml(state.goal) + '</h3>';
+    html += '<p class="sub">Choose the specific areas you need help with (select one or more).</p>';
+    html += '<div class="wizard-progress"><span style="width: ' + progress + '%"></span></div>';
+    html += '<div class="wizard-badge-row">';
+
+    categories.forEach(function(category) {
+      var selected = state.categories.indexOf(category) !== -1 ? ' selected' : '';
+      html += '<button class="wizard-badge' + selected + '" data-category="' + escapeHtml(category) + '">';
+      html += escapeHtml(category);
+      html += '</button>';
+    });
+
+    html += '</div>';
+    html += '<div class="wizard-actions">';
+    html += '<button class="btn btn-ghost" data-action="back">Back</button>';
+    html += '<button class="btn btn-primary" data-action="next" disabled>Continue</button>';
+    html += '</div>';
+    html += '</div>';
+
+    return html;
+  }
+
+  function renderContactInfo() {
+    var progress = Math.round((state.step / FINAL_STEP) * 100);
+    var html = '<div class="wizard-card">';
+    html += '<div class="wizard-block-tag">Step 3 of ' + (FINAL_STEP + 1) + '</div>';
+    html += '<h3>Your Contact Information</h3>';
+    html += '<p class="sub">We\'ll use this to reach out to you about your project.</p>';
+    html += '<div class="wizard-progress"><span style="width: ' + progress + '%"></span></div>';
+    
+    html += '<div class="wizard-field">';
+    html += '<label>Full Name *</label>';
+    html += '<input type="text" id="input-name" value="' + escapeHtml(state.name) + '" placeholder="Your full name" required>';
+    html += '</div>';
+    
+    html += '<div class="wizard-field">';
+    html += '<label>Email Address *</label>';
+    html += '<input type="email" id="input-email" value="' + escapeHtml(state.email) + '" placeholder="your@email.com" required>';
+    html += '</div>';
+    
+    html += '<div class="wizard-field">';
+    html += '<label>Phone Number *</label>';
+    html += '<input type="tel" id="input-phone" value="' + escapeHtml(state.phone) + '" placeholder="+1 (555) 000-0000" required>';
+    html += '</div>';
+
+    html += '<div class="wizard-actions">';
+    html += '<button class="btn btn-ghost" data-action="back">Back</button>';
+    html += '<button class="btn btn-primary" data-action="next">Review & Submit</button>';
+    html += '</div>';
+    html += '</div>';
+
+    return html;
+  }
+
+  function renderReview() {
+    var progress = 100;
+    var html = '<div class="wizard-card">';
+    html += '<div class="wizard-block-tag">Step 4 of ' + (FINAL_STEP + 1) + '</div>';
+    html += '<h3>Review Your Request</h3>';
+    html += '<p class="sub">Please review your information before submitting.</p>';
+    html += '<div class="wizard-progress"><span style="width: ' + progress + '%"></span></div>';
+    
+    html += '<div class="wizard-note-card">';
+    html += '<strong>Service Needed:</strong> ' + escapeHtml(state.goal) + '<br>';
+    if (state.categories.length > 0) {
+      html += '<strong>Areas:</strong> ' + escapeHtml(state.categories.join(', ')) + '<br><br>';
+    } else {
+      html += '<br>';
+    }
+    html += '<strong>Name:</strong> ' + escapeHtml(state.name) + '<br>';
+    html += '<strong>Email:</strong> ' + escapeHtml(state.email) + '<br>';
+    html += '<strong>Phone:</strong> ' + escapeHtml(state.phone);
+    html += '</div>';
+
+    html += '<div class="wizard-actions">';
+    html += '<button class="btn btn-ghost" data-action="back">Back</button>';
+    html += '<button class="btn btn-primary" data-action="submit">Submit Request</button>';
+    html += '</div>';
+    html += '</div>';
+
+    return html;
+  }
+
+  function attachEventListeners() {
+    // Goal selection
+    document.querySelectorAll('.wizard-option').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        state.goal = this.getAttribute('data-goal');
+        state.categories = []; // Reset categories when goal changes
+        document.querySelectorAll('.wizard-option').forEach(function(b) {
+          b.classList.remove('selected');
+        });
+        this.classList.add('selected');
+        // Enable next button
+        document.querySelector('[data-action="next"]').disabled = false;
+      });
+    });
+
+    // Category selection
+    document.querySelectorAll('.wizard-badge').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        var category = this.getAttribute('data-category');
+        var index = state.categories.indexOf(category);
+        
+        if (index !== -1) {
+          state.categories.splice(index, 1);
+        } else {
+          state.categories.push(category);
+        }
+        
+        this.classList.toggle('selected');
+        
+        // Enable next button if at least one category is selected
+        document.querySelector('[data-action="next"]').disabled = state.categories.length === 0;
+      });
+    });
+
+    // Form inputs
+    var nameInput = document.getElementById('input-name');
+    var emailInput = document.getElementById('input-email');
+    var phoneInput = document.getElementById('input-phone');
+
+    if (nameInput) nameInput.addEventListener('change', function() { state.name = this.value; });
+    if (emailInput) emailInput.addEventListener('change', function() { state.email = this.value; });
+    if (phoneInput) phoneInput.addEventListener('change', function() { state.phone = this.value; });
+
+    // Buttons
+    document.querySelectorAll('[data-action]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var action = this.getAttribute('data-action');
+        if (action === 'next') {
+          if (state.step === 1) {
+            // Category selection - at least one required
+            if (state.categories.length === 0) {
+              alert('Please select at least one area');
+              return;
+            }
+          } else if (state.step === 2) {
+            // Contact info - all required
+            if (!state.name || !state.email || !state.phone) {
+              alert('Please fill in all fields');
+              return;
+            }
+          }
+          state.step++;
+          render();
+        } else if (action === 'back') {
+          state.step--;
+          render();
+        } else if (action === 'submit') {
+          submitForm();
+        }
+      });
+    });
+  }
+
+  function submitForm() {
+    if (!state.name || !state.email || !state.phone || !state.goal) {
+      alert('Please complete all fields');
+      return;
+    }
+
+    var submitBtn = document.querySelector('[data-action="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Submitting...';
+
+    var formDataHtml = '<strong>Service Category:</strong> ' + escapeHtml(state.goal) + '<br>';
+    if (state.categories.length > 0) {
+      formDataHtml += '<strong>Areas Selected:</strong> ' + escapeHtml(state.categories.join(', ')) + '<br><br>';
+    } else {
+      formDataHtml += '<br>';
+    }
+    formDataHtml += '<p>Thank you for your interest in our expert services. We will review your request and get back to you shortly.</p>';
+
+    var data = {
+      action: 'submit_expert_request',
+      nonce: expertRequestData.nonce || '',
+      name: state.name,
+      email: state.email,
+      phone: state.phone,
+      projectTitle: 'Expert Request - ' + state.goal,
+      formData: formDataHtml,
+    };
+
+    fetch(expertRequestData.ajaxurl || '/wp-admin/admin-ajax.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams(data),
+    })
+    .then(function(response) { return response.json(); })
+    .then(function(result) {
+      if (result.success) {
+        // Show thank you message
+        root.innerHTML = '<div class="wizard-card">' +
+          '<h3 style="color: var(--accent);">✓ Request Submitted!</h3>' +
+          '<p class="sub">' + result.data.message + '</p>' +
+          '</div>';
+        
+        // Redirect after 2 seconds
+        setTimeout(function() {
+          if (result.data.redirect) {
+            window.location.href = result.data.redirect;
+          }
+        }, 2000);
+      } else {
+        alert('Error: ' + (result.data?.message || 'Failed to submit'));
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Request';
+      }
+    })
+    .catch(function(error) {
+      console.error('Error:', error);
+      alert('Error submitting form');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Request';
+    });
+  }
+
+  function escapeHtml(text) {
+    var map = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#039;'
+    };
+    return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+  }
+
+  // Initial render
+  render();
+})();
+</script>
+</body>
+</html>

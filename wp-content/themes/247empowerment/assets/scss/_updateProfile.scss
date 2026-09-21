@@ -1,0 +1,70 @@
+/* =========================
+   Desktop (≥1366px)
+   ========================= */
+
+/* Hide toggle headers */
+.edit-profile-toggle,
+.profile-menu-toggle {
+    display: none;
+}
+
+/* Hide caret on desktop */
+.toggle-icon {
+    display: none;
+}
+
+/* Menus always visible */
+.edit-profile-menu,
+.profile-menu-content {
+    display: block;
+}
+
+
+/* =========================
+   Mobile / Tablet (<1366px)
+   ========================= */
+@media (max-width: 1365px) {
+
+    /* Shared toggle style */
+    .edit-profile-toggle,
+    .profile-menu-toggle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        padding: 10px 12px;
+        border-bottom: 1px solid #eee;
+    }
+
+    /* Show caret on mobile */
+    .toggle-icon {
+        display: inline-block;
+        transition: transform 0.3s ease;
+    }
+
+    /* -------- Edit Profile menu -------- */
+    .edit-profile-menu {
+        display: none;
+    }
+
+    .edit-profile-wrapper.active .edit-profile-menu {
+        display: block;
+    }
+
+    .edit-profile-wrapper.active .toggle-icon {
+        transform: rotate(180deg);
+    }
+
+    /* -------- Normal Profile menu -------- */
+    .profile-menu-content {
+        display: none;
+    }
+
+    .profile-menu-wrapper.active .profile-menu-content {
+        display: block;
+    }
+
+    .profile-menu-wrapper.active .toggle-icon {
+        transform: rotate(180deg);
+    }
+}

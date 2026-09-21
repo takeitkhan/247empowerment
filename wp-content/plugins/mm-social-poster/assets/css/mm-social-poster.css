@@ -1,0 +1,28 @@
+.mm-social-card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    color: #fff;
+}
+
+.mm-social-card__icon--linkedin {
+    background: #0a66c2;
+}
+
+.mm-social-badge--linkedin {
+    color: #0a66c2;
+}
+
+.mm-social-badge--linkedin:hover {
+    color: #fff;
+    background: #0a66c2;
+    border-color: #0a66c2;
+}
+
+.mm-social-connect-hint {
+    font-size: 0.875rem;
+}

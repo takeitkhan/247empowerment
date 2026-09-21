@@ -1,0 +1,125 @@
+@use "variables" as *;
+
+/* Goudy Old Style Font */
+@font-face {
+    font-family: 'Goudy Old Style';
+    src: url('../goudyoldstyle/GoudyOldStyleT-Regular.woff2') format('woff2'),
+         url('../goudyoldstyle/GoudyOldStyleT-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+nav {
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+
+    li {
+      padding: 5px 0 !important;
+    }
+  }
+
+  .nav-item a {
+    color: $black !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    font-size: 16px;
+
+    &:hover {
+      color: $primary-color !important;
+    }
+  }
+}
+
+/* ---------- DROPDOWN MENU BASE ---------- */
+.navbar .dropdown-menu {
+    padding-top: .25rem;
+    padding-bottom: .5rem;
+    border-radius: 6px;
+    min-width: 200px;
+    margin: 0 !important;
+}
+.navbar .dropdown-menu .dropdown-menu {
+  margin: 0 !important;
+}
+/* ---------- SUBMENU ITEMS ---------- */
+.navbar .dropdown-menu .dropdown-item {
+  padding: 0px 0px; /* compact height */  
+  line-height: 1.3;
+  text-decoration: none; /* remove underline */  
+}
+
+/* Remove last separator line */
+.navbar .dropdown-menu .dropdown-item:last-child {
+  border-bottom: none;
+}
+
+/* ---------- HOVER / ACTIVE STATES ---------- */
+.navbar .dropdown-menu .dropdown-item:hover,
+.navbar .dropdown-menu .dropdown-item:focus {
+  background-color: #f8f9fa;
+  color: #000;
+  text-decoration: none !important;
+}
+
+/* Active submenu item */
+.navbar .dropdown-menu .active > .dropdown-item,
+.navbar .dropdown-menu .dropdown-item.active {
+  background-color: #e9ecef;
+  font-weight: 500;
+}
+
+/* ---------- REMOVE UNDERLINE FROM ALL MENU LINKS ---------- */
+.navbar a {
+  text-decoration: none !important;
+}
+
+ul.dropdown-menu.show li.nav-item {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Nested dropdowns */
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+  margin: 0 !important;
+  padding: 0.25rem 0;
+  border-radius: 6px;
+}
+
+
+@media (min-width: 992px) {
+  .dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+  }
+}
+
+/* Enable hover dropdowns on desktop only */
+@media (min-width: 992px) {
+  .navbar .dropdown:hover > .dropdown-menu {
+    display: block;
+    margin-top: 0;
+  }
+
+  .navbar .dropdown-menu {
+    display: none;
+  }
+
+  /* Prevent Bootstrap click conflict */
+  .navbar .dropdown-toggle::after {
+    pointer-events: none;
+  }
+}
+
+/* DESKTOP NAV - Apply Goudy Old Style Font */
+.navbar,
+.navbar-nav,
+.desktop-menu {
+  font-family: 'Goudy Old Style', serif;
+  font-size: 13px;
+}

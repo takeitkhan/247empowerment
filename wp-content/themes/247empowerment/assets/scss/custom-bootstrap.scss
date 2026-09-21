@@ -1,0 +1,72 @@
+// =====================================================================
+// 1️⃣ MODULES — USE modern @use for internal files
+// =====================================================================
+
+// Base variables and mixins
+@use 'variables' as *;
+@use 'mixins' as *;
+
+// Bootstrap core (still uses @import internally — safe to keep for now)
+@use 'bootstrap/bootstrap' as *;
+
+// Project-specific partials
+@use 'utilities' as *;
+@use 'custom' as *;
+@use 'loggedin_custom' as *;
+@use 'base' as *;
+@use 'button' as *;
+@use 'full_code' as *;
+@use 'navbar' as *;
+@use 'signup' as *;
+@use 'marketing' as *;
+@use 'blog' as *;
+@use 'profile' as *;
+@use 'alert' as *;
+@use 'popup' as *;
+@use 'footer' as *;
+@use 'gutenberg' as *;
+@use 'pagination' as *;
+@use 'header' as *;
+@use 'forms' as *;
+@use 'personalEmpowerment' as *;
+@use 'referral_partner' as *;
+@use 'marketplace' as *;
+@use 'coaching' as *;
+@use 'home' as *;
+@use 'event' as *;
+@use 'updateProfile' as *;
+@use 'video' as *;
+@use 'wallet' as *;
+
+// =====================================================================
+// 2️⃣ EXTERNAL CSS IMPORTS — must remain @import url()
+// These are valid CSS imports (not Sass imports), so safe to keep.
+// =====================================================================
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css");
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+@import url("https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css");
+
+// =====================================================================
+// 3️⃣ CSS VARIABLES
+// =====================================================================
+:root {
+  --primary-color: #05489C;
+  --supporting-neutral: #BEC9E5;
+  /* Add more if needed */
+}
+
+// =====================================================================
+// 4️⃣ GLOBAL STYLES
+// =====================================================================
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f2f4f7;
+  color: var(--black-color);
+  font-size: clamp(15px, 2vw, 16px);
+}

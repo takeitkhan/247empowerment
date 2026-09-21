@@ -1,0 +1,48 @@
+.welcome-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+}
+
+.popup-inner {
+  background: #fff;
+  max-width: 800px;
+  width: 90%;
+  border-radius: 16px;
+}
+
+.popup-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  z-index: 3;
+
+  img {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s;
+  }
+}
+
+.welcome-text {
+  color: var(--black);
+  z-index: 2;
+  white-space: nowrap;
+
+  h2 {
+    font-size: clamp(20px, 6vw, 56px);
+    font-weight: 500;
+  }
+}
+
+.vcu-design {
+  position: absolute;
+  right: 43px;
+  top: 0;
+  z-index: 1;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}

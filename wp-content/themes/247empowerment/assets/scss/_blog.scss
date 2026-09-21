@@ -1,0 +1,208 @@
+@use "variables" as *;
+.blog-search {
+  width: 50%;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 769px) and (max-width: 1000px) {
+    width: 70%;
+    margin: 0 auto;
+  }
+}
+
+.input-search {
+  flex-basis: 96%;
+}
+
+.search-btn {
+  flex-basis: 4%;
+}
+
+.blog-title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 160%;
+  letter-spacing: 0%;
+  font-style: bold;
+  color: $black;
+}
+
+.blog-author {
+  font-size: 14px;
+  line-height: 160%;
+  letter-spacing: 0%;
+  font-style: normal;
+  color: $black;
+}
+
+.blog-tag {
+  font-size: 14px;
+  border-radius: 20px;
+  border: 1px solid $light-s-blue;
+  padding: 4px 8px;
+  color: $light-s-blue;
+}
+
+// pagination 
+
+.custom-pagination {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  .page-item {
+     border: none !important;
+      
+    .page-link {
+      border: none;
+      background: transparent;
+      color: var(--black);
+      font-size: 16px;
+      padding: 4px 8px;
+      transition: all 0.2s ease-in-out;
+          outline: none !important;
+      box-shadow: none !important;
+      
+    }
+
+    &.active .page-link {
+      background-color: var(--primary-color);
+      color: #fff;
+      font-weight: 500;
+    }
+
+    &.disabled .page-link {
+      color: #999;
+      pointer-events: none;
+    }
+  }
+}
+
+
+
+/* blog page */
+
+
+
+/* welcome popup */
+.welcome-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+}
+
+.popup-inner {
+  background: $white;
+  max-width: 800px;
+  width: 90%;
+  max-height: 515px;
+  height: auto;
+  border-radius: 16px;
+}
+
+.popup-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.popup-button {
+  max-width: 527px;
+  width: 90%;
+  margin: auto;
+}
+
+.popup-close {
+  right: 16px;
+  position: absolute;
+  top: 16px;
+  background: none;
+  z-index: 3;
+
+  img {
+    width: 16px;
+    height: 16px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    img {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.welcome-text {
+  color: $black;
+  z-index: 2;
+  white-space: nowrap; // keeps text in one line
+
+  h2 {
+    display: inline-block;
+    font-size: clamp(20px, 6vw, 56px);
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.6;
+    letter-spacing: 0;
+  }
+}
+
+.vcu-design {
+  position: absolute;
+  right: 43px;
+  top: 0;
+  z-index: 1; // stays below the text
+
+  @media (max-width: 768px) {
+    display: none; // hide on smaller screens
+  }
+}
+
+.bp-vector {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  top: -105px;
+
+  @media (max-width: 768px) {
+    display: none; // hide on smaller screens
+  }
+}
+
+.popup-btn-container {
+  margin-top: 95px;
+
+  @media (max-width: 768px) {
+    margin-top: 40px;
+  }
+}
+
+.popup-content {
+  @media (max-width: 768px) {
+    margin-top: 20px;
+  }
+}
+
+.popup-message {
+  font-size: clamp(16px, 3vw, 24px);
+  font-weight: 400;
+  line-height: 160%;
+  letter-spacing: 0%;
+  color: $black;
+  max-width: 440px;
+  margin: 0 auto;
+  width: 90%;
+
+  span {
+    background: var(--linear-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+  }
+}
+/* welcome popup */
