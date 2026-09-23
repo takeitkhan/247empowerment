@@ -60,6 +60,11 @@ $event_date     = get_post_meta($event->ID, 'event_date', true);
 $event_time     = get_post_meta($event->ID, 'event_time', true);
 $event_duration = get_post_meta($event->ID, 'event_duration', true);
 $event_link     = get_post_meta($event->ID, 'event_link', true);
+$event_platform = get_post_meta($event->ID, 'event_platform', true);
+$youtube_video_id = $event_platform === 'youtube_live' ? mm_event_youtube_video_id($event_link) : false;
+$event_starts_at = ($event_date && $event_time)
+    ? DateTimeImmutable::createFromFormat('!Y-m-d H:i', $event_date . ' ' . $event_time, wp_timezone())
+    : false;
 $event_price    = get_post_meta($event->ID, 'event_price', true);
 $registration_type = get_post_meta($event->ID, 'registration_type', true);
 $location       = get_post_meta($event->ID, 'event_location', true); // optional
@@ -156,6 +161,22 @@ $shareable_link = home_url("/u/{$event_user}/event/{$event_slug}/?shareable=1");
                                     <img class="w-100 h-100 object-fit-cover" src="<?= esc_url($thumbnail_url); ?>" alt="<?= esc_attr(get_the_title($event)); ?>">
                                 </div>
                             </div>
+
+                            <?php if ($youtube_video_id): ?>
+                                <div class="pb-4">
+                                    <?php if ($event_starts_at && time() < $event_starts_at->getTimestamp()): ?>
+                                        <div style="aspect-ratio:16/9;background:#101827;color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;border-radius:8px;">
+                                            <p>This live stream hasn't started yet. Please come back at the scheduled time.</p>
+                                        </div>
+                                        <script>setTimeout(function () { location.reload(); }, <?php echo (int) min(60000, max(1000, ($event_starts_at->getTimestamp() - time()) * 1000)); ?>);</script>
+                                    <?php else: ?>
+                                        <div style="aspect-ratio:16/9;">
+                                            <iframe title="YouTube Live: <?php echo esc_attr(get_the_title($event)); ?>" src="<?php echo esc_url('https://www.youtube.com/embed/' . $youtube_video_id); ?>" style="width:100%;height:100%;border:0;border-radius:8px;" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share" allowfullscreen loading="lazy"></iframe>
+                                        </div>
+                                        <p class="mt-2">If the host hasn't started broadcasting, the YouTube player will show that the stream is upcoming.</p>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endif; ?>
 
                             <div class="pb-4 event-details">
                                 <?php if ($event_date) : ?>
