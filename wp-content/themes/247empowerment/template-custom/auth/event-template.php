@@ -150,8 +150,16 @@ if ($user) {
 
                                         <!-- Event Link -->
                                         <div class="col-12">
-                                            <label class="form-label">Event Link <span>*</span></label>
-                                            <input type="url" name="event_link" class="form-control input" placeholder="ex. zoom.com/djslslkdnbkfn" required>
+                                            <label class="form-label" for="event-platform">Event platform <span>*</span></label>
+                                            <select id="event-platform" name="event_platform" class="form-control input" required>
+                                                <option value="external">External event link</option>
+                                                <option value="youtube_live">YouTube Live</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12">
+                                            <label class="form-label" for="event-link">Event Link <span>*</span></label>
+                                            <input id="event-link" type="url" name="event_link" class="form-control input" placeholder="https://youtube.com/live/iUigN7mH0zw" required>
+                                            <small>For YouTube Live, paste the scheduled stream's watch link. Never paste a stream key.</small>
                                         </div>
 
                                         <!-- LiveKit options (shown when scheduling a meeting) -->

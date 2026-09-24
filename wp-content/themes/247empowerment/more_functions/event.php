@@ -148,6 +148,29 @@ add_filter('post_row_actions', function ($actions, $post) {
     return $actions;
 }, 10, 2);
 
+// Accept only a single YouTube video or scheduled Live watch URL.
+function mm_event_youtube_video_id($url)
+{
+    $parts = wp_parse_url($url);
+    if (!$parts || empty($parts['host']) || ($parts['scheme'] ?? '') !== 'https') {
+        return false;
+    }
+    $host = strtolower($parts['host']);
+    $path = trim($parts['path'] ?? '', '/');
+    $id = '';
+    if (in_array($host, ['youtube.com', 'www.youtube.com', 'm.youtube.com'], true)) {
+        if ($path === 'watch') {
+            parse_str($parts['query'] ?? '', $query);
+            $id = $query['v'] ?? '';
+        } elseif (preg_match('~^(?:live|embed)/([^/]+)$~', $path, $matches)) {
+            $id = $matches[1];
+        }
+    } elseif (in_array($host, ['youtu.be', 'www.youtu.be'], true)) {
+        $id = $path;
+    }
+    return is_string($id) && preg_match('/^[A-Za-z0-9_-]{11}$/D', $id) ? $id : false;
+}
+
 function handle_submit_event_form()
 {
 
@@ -171,7 +194,14 @@ function handle_submit_event_form()
     $event_time = sanitize_text_field($_POST['event_time']);
     $event_duration = sanitize_text_field($_POST['event_duration']);
     $event_desc = sanitize_textarea_field($_POST['event_description']);
-    $event_link = esc_url_raw($_POST['event_link']);
+    $event_link = esc_url_raw($_POST['event_link'] ?? '');
+    $event_platform = sanitize_key($_POST['event_platform'] ?? 'external');
+    if (!in_array($event_platform, ['external', 'youtube_live'], true)) {
+        wp_die('Invalid event platform.');
+    }
+    if ($event_platform === 'youtube_live' && !mm_event_youtube_video_id($event_link)) {
+        wp_die('Please enter a valid YouTube Live watch link.');
+    }
     $registrationType = sanitize_text_field($_POST['registrationType']);
     $event_price = sanitize_text_field($_POST['event_price']);
 
@@ -208,6 +238,7 @@ function handle_submit_event_form()
     update_post_meta($post_id, 'event_time', $event_time);
     update_post_meta($post_id, 'event_duration', $event_duration);
     update_post_meta($post_id, 'event_link', $event_link);
+    update_post_meta($post_id, 'event_platform', $event_platform);
     update_post_meta($post_id, 'registration_type', $registrationType);
     update_post_meta($post_id, 'event_price', $event_price);
 
